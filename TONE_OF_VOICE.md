@@ -77,7 +77,23 @@ Patterns observed repeatedly enough across independent pages to treat as house s
 - Generic reassurance standing in for specifics: "we're here to help," "don't worry, we've got you" with nothing concrete attached. If it could be said about literally any vendor, it's too generic — replace with the actual number, step, or scenario.
 - Overcorrecting into casual/jokey territory (slang, forced humor, excessive informality) to seem approachable. Warmth comes from specificity and respect for the reader's intelligence, not from sounding like a buddy.
 
-## 6. Structural conventions
+## 6. Avoid sounding like AI
+
+A specific, opinionated checklist of tells that read as generated rather than written. These cut across both registers — cut them on sight even when a line is technically "on brand" for warmth or directness:
+
+1. **Em dash as a dramatic pause where a comma or period would do.** One or two per long post is fine when something is genuinely being interrupted or set apart; four or five in one post reads as a tic, not a voice. Default to a comma or a full stop first, and reread any post that has more than two or three em dashes total.
+2. **The short-line-on-its-own for false profundity.** "Short line. / On its own. / That sounds deeper than it is." If a one-line paragraph doesn't carry a genuinely new idea, it's not a rhythm device, it's padding.
+3. **The "It's not a trend. It's a movement." contrastive-negation template** — including its variants: "isn't just X, it's Y," "the fix isn't X — it's Y," "not the ones who X — they're the ones who Y." It sounds insightful without saying anything a plain sentence couldn't say better. Just say the Y.
+4. **Triple fragments stacked for emphasis.** "Real insight. Real value. Real results." Rhythmic, but empty — if you can't fill each fragment with an actual, distinct specific, cut two of the three.
+5. **"And the thing is?" as a rhetorical hinge** — a question posed only to immediately answer it in the next line, used purely for pacing rather than because the reader would genuinely wonder.
+6. **Emoji bullet lists topped with an "Impact line. Click here!"** No emoji as bullet markers. No line whose only job is to sound impactful right before a CTA — the CTA should earn its own weight without a hype line in front of it.
+7. **Writing *about* being authentic/empathetic instead of just being specific.** A sentence that announces its own sincerity ("we really care," "this comes from a place of...") undercuts itself. Show it with a number or a named scenario instead of naming the feeling.
+8. **Comments and replies as polished as the main post.** If it's a reply to a reader, a LinkedIn comment, or a support response, let it be shorter and rougher than finished copy — over-polish there reads as a bot, not a person.
+9. **A closing line on every section that sounds profound but says nothing new.** If the last sentence of a section could be pasted onto a completely different topic and still "work," it isn't saying anything — end on the most specific sentence available, not the vaguest.
+
+The through-line: **all of these are ways of performing insight or emotion instead of delivering it.** The fix is almost always the same one this guide already prescribes elsewhere — a specific number, a named scenario, a concrete next step — because a generic-empathy tell and an AI tell are usually the same sentence.
+
+## 7. Structural conventions
 
 - **Hero pattern:** Category claim ("#1 Packaging Compliance Platform") → one-line value prop → 3 short benefit bullets → primary CTA. Repeats near-identically across Homepage, Compliance, and Plastic Recovery Claims pages.
 - **CTA vocabulary is role-specific, not generic "Learn More" everywhere:** "Book a Demo" (bottom-of-page, high-intent), "Talk to a Compliance Specialist" (mid-page, consultative), "Get Started" (top-of-page, low-commitment), "Read Case Study" / "Read Story" (proof content), "Check My EPR Status" / "5-minute survey" (self-qualification tools). Match CTA weight to the reader's position in the page.
@@ -85,7 +101,7 @@ Patterns observed repeatedly enough across independent pages to treat as house s
 - **FAQ sections address the buyer's actual internal objections**, not just product questions — e.g. "I need to get buy-in and budget approval from our internal stakeholders and leadership" is treated as a legitimate FAQ, on par with technical questions.
 - **Numbers get bolded/isolated as standalone proof points** in case studies and impact sections (e.g., "581,313 lbs" set apart from body copy), not buried in paragraphs.
 
-## 7. Tone by content type — quick reference
+## 8. Tone by content type — quick reference
 
 | Content type | Tone | Length/format |
 |---|---|---|
@@ -96,7 +112,7 @@ Patterns observed repeatedly enough across independent pages to treat as house s
 | FAQ / Q&A | Precise, hedged where legally ambiguous, still conversational | Question verbatim + direct answer, disclaimers where needed |
 | About/Mission/Impact | Warmer, values-forward, movement language | Narrative with founder story, framework naming (e.g. "3+1 Planetary Crisis") |
 
-## 8. Before / after
+## 9. Before / after
 
 **Generic corporate version:**
 > Our platform leverages industry-leading technology to help companies achieve compliance with evolving environmental regulations across multiple jurisdictions, ensuring peace of mind for stakeholders.
@@ -116,7 +132,7 @@ Patterns observed repeatedly enough across independent pages to treat as house s
 **Empathetic rePurpose voice (professor with a beer, not the person saying "I told you so"):**
 > This is what we're hearing from a lot of teams right now: EPR landed in a gap nobody quite owned — too technical for marketing, too new for ops to have built a process around. That's not a knock on anyone; it's just what happens when a regulation moves faster than most org charts. Here's where to start.
 
-## 9. Quick checklist for anyone writing as rePurpose Global
+## 10. Quick checklist for anyone writing as rePurpose Global
 
 - [ ] Did I name the reader's actual fear/objection before answering it?
 - [ ] Does every impact or savings claim have a specific number attached (not "significant" or "many")?
@@ -128,6 +144,9 @@ Patterns observed repeatedly enough across independent pages to treat as house s
 - [ ] Would this land as "your friend who happens to be the expert," or does it slip into either lecturing (too formal, right/wrong) or buddy-casual (jokey, vague)? Aim for the professor with one beer, not zero or three.
 - [ ] Is the empathy here backed by a specific detail (a number, a named scenario, a concrete next step) rather than a generic reassurance that could apply to any vendor?
 - [ ] If the reader is behind, late, or non-compliant, does the copy explain *why this happens to good teams* rather than implying they should have known better?
+- [ ] Count the em dashes. More than two or three in one post? Cut most of them to periods or commas.
+- [ ] Scan for any "It's not X, it's Y" / "isn't just X — it's Y" construction and rewrite it as a plain statement of Y.
+- [ ] Does every section end on its most specific sentence, not a vague one that could be pasted onto any other topic?
 
 ---
 
