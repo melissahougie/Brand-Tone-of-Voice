@@ -90,6 +90,9 @@ A specific, opinionated checklist of tells that read as generated rather than wr
 7. **Writing *about* being authentic/empathetic instead of just being specific.** A sentence that announces its own sincerity ("we really care," "this comes from a place of...") undercuts itself. Show it with a number or a named scenario instead of naming the feeling.
 8. **Comments and replies as polished as the main post.** If it's a reply to a reader, a LinkedIn comment, or a support response, let it be shorter and rougher than finished copy — over-polish there reads as a bot, not a person.
 9. **A closing line on every section that sounds profound but says nothing new.** If the last sentence of a section could be pasted onto a completely different topic and still "work," it isn't saying anything — end on the most specific sentence available, not the vaguest.
+10. **The ", not X" comma-contrast fragment, used as a reflex.** A lighter cousin of #3 ("use the quiet months, not the week before"; "a timing problem, not a compliance problem"; "every report, not just the complicated ones"). One or two per post reads as a clean rhetorical move; six or eight reads as a tic. Count them in a full draft — if there are more than three, cut half and just state the point plainly, or swap the connector (rather than / instead of / without) so they don't all sound the same.
+11. **Generic intensifiers standing in for a real word.** "Actually," "really," "real [noun]" (real friction, real savings, real effort) dropped into sentence after sentence to sound emphatic without adding information. If the sentence works with the intensifier deleted, delete it; if it needs emphasis, use a specific word the sentence actually earns.
+12. **The same opener-and-closer template reused across posts in a series.** Two posts published close together that both open with "this is what we're hearing/seeing" and both close with an identical CTA sentence read as one generated template with the topic swapped in. Vary the hook and the CTA's surrounding sentence post to post — the CTA phrase itself (e.g. "Talk to a Compliance Specialist") can and should repeat as house vocabulary, but the sentence built around it shouldn't.
 
 The through-line: **all of these are ways of performing insight or emotion instead of delivering it.** The fix is almost always the same one this guide already prescribes elsewhere — a specific number, a named scenario, a concrete next step — because a generic-empathy tell and an AI tell are usually the same sentence.
 
@@ -147,6 +150,8 @@ The through-line: **all of these are ways of performing insight or emotion inste
 - [ ] Count the em dashes. More than two or three in one post? Cut most of them to periods or commas.
 - [ ] Scan for any "It's not X, it's Y" / "isn't just X — it's Y" construction and rewrite it as a plain statement of Y.
 - [ ] Does every section end on its most specific sentence, not a vague one that could be pasted onto any other topic?
+- [ ] Count the ", not X" fragments and the "actually"/"real X" fillers. More than two or three of either in one post? Cut most, and vary the connector on what's left.
+- [ ] If this is one of several posts written in the same sitting, does its opener and closer actually read differently from the others, not just with different nouns swapped in?
 
 ---
 
