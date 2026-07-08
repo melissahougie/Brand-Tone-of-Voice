@@ -1,34 +1,25 @@
+# Gold-standard example: "What a Multi-State EPR Season Actually Tests"
+
+Chosen by the brand owner as the winning example of rePurpose's voice among several drafts. Full source and revision history: `drafts/blog/what-your-first-multi-state-epr-season-really-tests.md` at the repo root.
+
+**Why this one works, mapped back to the guide:**
+
+- **Opens with a specific fact, not a hook.** The June 1, 2026 deadline, six states, eight possible reports — concrete and verifiable before any opinion shows up. (Guide §6, item 9: specificity beats a vague opener every time.)
+- **"Building the plane while flying it" lands the empathy trait without announcing it.** It shows the reader's situation instead of saying "we know this was hard for you." (Guide §3, trait 1: empathy = specificity, not stated reassurance.)
+- **Explicit non-blame line**: "That's a timing problem CAA created, not a gap in anyone's compliance process." Names a cause other than the reader's competence. (Guide §3, trait 1 calibration warning: don't let directness read as judgment.)
+- **Every section opens with a plain reframe of a false assumption** ("is three separate questions, not one"; "is a bigger risk than your data itself"; "you need a paper trail, not just one report"; "is not 'one more state'") — each headline does real work instead of just labeling the topic.
+- **Two proof points of different weights, back to back**: an anonymized $122K example and a named, quoted, public Tillamook testimonial. Mixing an anonymized figure with a named one is a deliberate credibility move — the named quote validates that the anonymized one is the same kind of real result.
+- **Closes with a numbered, concrete action list**, then a single CTA line. No stacked hype line before it.
+
+**One flagged imperfection, left in deliberately:** the line "We're here to help" before the closing CTA is exactly the kind of generic-reassurance filler Guide §5 calls out to avoid ("we're here to help," "don't worry" with nothing concrete attached). It's a two-word deviation in an otherwise strong post, kept because this exact version was named the winner. If this post gets revised again, cut it or replace it with something specific — but don't treat its presence here as license to reuse that phrase elsewhere.
+
+**Two open items that don't affect voice but must be resolved before this goes anywhere near publication:**
+1. The $122,000 reclassification example is anonymized but wasn't previously public. Being the voice "winner" doesn't clear it — get sign-off first.
+2. It draws on an internal cross-functional retrospective that contains employee names, client incidents, a Zoom link/passcode, and Canada GTM strategy. None of that is in this post, and it shouldn't be pulled from that source into anything else without the same redaction pass.
+
 ---
-title: "What a Multi-State EPR Season Actually Tests (And Where Brands Lose the Most Money Without Knowing It)"
-category: Packaging Compliance
-author: The rePurpose Global Team
-published: "[DRAFT — set on publish]"
-status: WINNER — approved as the gold-standard example of rePurpose's voice; used as the canonical example in the repurpose-tone-of-voice skill
-source_note: >
-  Pulled from an internal EPR 2026 cross-functional retrospective, with its
-  opening two paragraphs merged in from the companion CAA-reporting-round
-  post. That retrospective is NOT for external use as-is: it names
-  employees and specific client incidents, includes a Zoom recording link
-  and passcode, internal config-accuracy metrics, and Canada GTM/pricing/
-  market-sizing strategy. None of that appears below. What's kept is the
-  general, anonymized insight about where producers themselves lose time
-  and money during EPR reporting, reframed around the reader, not
-  rePurpose's internal operations.
-  STILL OPEN: the "$122,000" poly-coated paperboard reclassification
-  example is anonymized (no client named) but wasn't previously public —
-  being picked as the voice "winner" doesn't clear this for publication on
-  its own; still confirm it's OK to use before this goes live. The
-  Tillamook figure is already public via the existing homepage testimonial,
-  so that one's clear to reuse.
-editorial_note: >
-  This version merges the strongest opening (borrowed from the CAA
-  reporting-round post) with this post's five substantive sections. It also
-  reintroduces "We're here to help" before the closing CTA — worth flagging
-  that TONE_OF_VOICE.md section 5 calls that exact phrase out as generic
-  reassurance filler to avoid. Kept as-is here because this version was
-  explicitly chosen as the voice benchmark; if it's revised again, that's
-  the one line worth a second look.
----
+
+## The post
 
 June 1, 2026 was the first consolidated annual EPR reporting deadline under the Circular Action Alliance (CAA), covering six of the seven states with packaging EPR programs.¹ Depending on where you sell, you could have owed up to eight separate reports: three simplified supply reports (Minnesota, Maryland, Washington), three full annual supply reports (Oregon, Colorado, California), and two California-only reports (the Baseline Report and the Individual Source Reduction Plan). Colorado and Oregon also offered optional eco-modulation reports for anyone chasing a fee reduction.
 
@@ -36,7 +27,7 @@ If your team felt like it was building the plane while flying it, that's because
 
 Here's what that first round taught us and where we saw the friction actually show up, so you can get ahead before the next reporting cycle.
 
-## "Am I obligated?" is three separate questions, not one
+### "Am I obligated?" is three separate questions, not one
 
 Most brands treat obligation assessment as a single yes-or-no question. It's really three, and they get harder as you go:
 
@@ -46,7 +37,7 @@ Most brands treat obligation assessment as a single yes-or-no question. It's rea
 
 The brands who came through this cleanly knew which of the three questions they were answering at each stage.
 
-## Your data format is a bigger risk than your data itself
+### Your data format is a bigger risk than your data itself
 
 Spreadsheet-based reporting has a specific failure mode: errors surface one at a time, after upload, instead of all at once. A "final" file can still be hiding problems nobody's found yet. The fixes that saved money weren't dramatic — they were basic checks, run consistently, on every report:
 
@@ -56,17 +47,17 @@ Spreadsheet-based reporting has a specific failure mode: errors surface one at a
 
 Neither of those was a dramatic discovery. Both came from someone running a checklist instead of assuming the data was fine because it looked fine.
 
-## If you're a repeat reporter, you need a paper trail, not just one report
+### If you're a repeat reporter, you need a paper trail, not just one report
 
 Nobody asks "why is this different from last year" the first time you file. The second time, everybody does. When a material name changes, or a number moves year over year, and nobody can explain why without digging through old emails and chat threads, that gap was always there. Filing twice just makes it visible.
 
 Before your next cycle, ask whoever handles your reporting: if a number changes next year, can you tell me why, in writing, without having to go look? "We'd have to check" is the answer worth fixing now, while it's not deadline season.
 
-## Canada is not "one more state"
+### Canada is not "one more state"
 
 If you sell into Canada, it helps to know this isn't a single program bolted onto your U.S. process. It's closer to nine separate programs, each with its own fee structure, exemption thresholds, and material definitions. Canada's Extended Producer Responsibility landscape is also heading toward harmonization soon, which will rewrite the rules again for whoever's paying attention. Brands building Canada-specific knowledge now, ahead of that shift, will have a head start on the ones waiting for it to force the issue.
 
-## Before your next reporting cycle
+### Before your next reporting cycle
 
 1. Confirm which of the three obligation questions you've actually gotten answered: market presence, product-line obligation, or SKU-level exemption. Most brands have only covered the first.
 2. Put a QC checklist in writing, covering material classification, component quantities, and a fee-reduction pass, and confirm it runs on every report, including the easy-looking ones.
