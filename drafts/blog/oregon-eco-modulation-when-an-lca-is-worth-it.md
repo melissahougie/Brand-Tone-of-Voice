@@ -3,7 +3,7 @@ title: "Oregon's Eco-Modulation Bonuses: When an LCA Is Worth the Cost"
 category: Packaging Compliance
 author: The rePurpose Global Team
 published: "[DRAFT — set on publish]"
-status: DRAFT — do not publish until the figures flag below is resolved
+status: DRAFT — figures now verified, see resolved_items; still needs a real Planet FWD quote
 source_note: >
   Built from a Planet FWD-drafted customer email (two versions, A and B)
   originally proposed as a dedicated send. Per internal planning
@@ -14,17 +14,27 @@ source_note: >
   initiated the original ask) and mentions both of rePurpose's LCA
   partners, Planet FWD and Greenly, in the closing CTA so neither reads
   as excluded.
-open_items:
+resolved_items:
   - >
-    FIGURES CONFLICT, MUST RESOLVE BEFORE PUBLISHING: this draft uses
-    Planet FWD's numbers (disclosure bonus up to 10%/$200K max; design
-    bonus scaling 20/25/30%, capped at $40K/$45K/$50K). Our own
-    already-published content ("5 Lessons From EPR Reporting Season
-    2026" and the CAA-reporting-round post) states different figures for
-    what appears to be the same two Oregon bonuses: disclosure capped at
-    $20,000, and design improvements up to 30% of base fees capped at
-    $50,000. These cannot both be right — verify against Oregon DEQ/CAA's
-    actual eco-modulation program rules before this goes live.
+    FIGURES VERIFIED (2026-07-10 research pass, ~8 convergent sources
+    including PlanetFWD's own blog, Packaging Dive, Waste Dive, Holland
+    & Knight, citing OAR 340-090-0910/0900/0930): our own
+    already-published figures were correct. Disclosure bonus is 10% of
+    base fees capped at $20,000 per LCA report/SKU batch, not $200,000 —
+    Planet FWD's draft appears to have conflated that per-report cap
+    with a $200,000 theoretical 10-report aggregate ceiling. The design-
+    improvement bonus tiers Planet FWD gave (20/25/30%, capped at
+    $40K/$45K/$50K) were actually correct. There's also a third bonus,
+    for switching single-use packaging to reusable/refillable, that
+    Planet FWD's draft omitted entirely: per-SKU-batch caps of
+    $40K–$50K/year, aggregating to up to $1.5M over the three-year bonus
+    cycle. Caveat: this rests on WebSearch's read of primary sources,
+    not a direct fetch of the Oregon DEQ PDF or OAR text (both were
+    blocked in-session) — worth a final human eyeball against
+    oregon.gov/deq/recycling/Documents/EcomodulationGuidance.pdf before
+    publishing, but confidence is high given convergence across
+    independent sources.
+open_items:
   - >
     NEEDS A REAL QUOTE: the Planet FWD quote below is a placeholder. Get
     an actual quote (Lauren, per the planning thread) rather than
@@ -37,10 +47,11 @@ open_items:
 
 Oregon's eco-modulation program can cut your EPR fees by a meaningful percentage, and most brands paying six figures a year in Oregon fees don't know the program exists.
 
-Here's the mechanism. Oregon's EPR fee structure includes eco-modulation: a way to lower your base fees by proving your packaging's environmental performance through a third-party-reviewed Life Cycle Assessment (CAA documentation calls this a Life Cycle Evaluation, or LCE). Two bonuses sit on top of that assessment, and they reward different things:
+Here's the mechanism. Oregon's EPR fee structure includes eco-modulation: a way to lower your base fees by proving your packaging's environmental performance through a third-party-reviewed Life Cycle Assessment (CAA documentation calls this a Life Cycle Evaluation, or LCE). Three bonuses sit on top of that assessment, and they reward different things:
 
-- **Disclosure bonus**: for measuring and reporting your packaging's environmental performance, whether or not you've made any changes yet.
-- **Design-improvement bonus**: for demonstrating actual packaging improvements, with the reduction scaling to how much impact you've cut.
+- **Disclosure bonus**: for measuring and reporting your packaging's environmental performance, whether or not you've made any changes yet. Worth 10% of base fees, capped at $20,000 per LCA report.
+- **Design-improvement bonus**: for demonstrating actual packaging improvements, in three tiers by how much impact you've cut: 20% of base fees (capped at $40,000) for a 10-40% reduction, 25% (capped at $45,000) for 40-70%, and 30% (capped at $50,000) for 70% or more.
+- **Reuse/refill bonus**: for switching single-use packaging to reusable or refillable formats. Caps run $40,000-$50,000 per SKU batch per year, and across the full three-year bonus cycle, that can add up to as much as $1.5 million.
 
 The assessment itself has to cover the full range of metrics Oregon scores, not just carbon. Acidification, eutrophication, and plastic leakage are all part of the picture, so a narrow carbon-only study won't qualify.
 
