@@ -3,7 +3,7 @@ title: "Oregon's Eco-Modulation Bonuses: When an LCA Is Worth the Cost"
 category: Packaging Compliance
 author: The rePurpose Global Team
 published: "[DRAFT — set on publish]"
-status: DRAFT — figures now verified, see resolved_items; still needs a real Planet FWD quote
+status: DRAFT — figures verified; a suggested Planet FWD quote is drafted in, still needs their actual sign-off
 source_note: >
   Built from a Planet FWD-drafted customer email (two versions, A and B)
   originally proposed as a dedicated send. Per internal planning
@@ -36,9 +36,10 @@ resolved_items:
     independent sources.
 open_items:
   - >
-    NEEDS A REAL QUOTE: the Planet FWD quote below is a placeholder. Get
-    an actual quote (Lauren, per the planning thread) rather than
-    publishing anything invented in their name.
+    QUOTE NEEDS SIGN-OFF: the Lauren/Planet FWD quote is a drafted
+    suggestion, not something she's actually said. Send it to Planet FWD
+    for approval or their own rewrite before this publishes with her
+    name attached to it. Also confirm her title.
   - >
     Confirm it's fine to name Greenly in the closing CTA — that name
     only appeared in internal Slack discussion, not in either email
@@ -71,17 +72,17 @@ Three steps, and none of them happen the week before your report is due:
 
 ## Why most brands skip it
 
-Two reasons, and neither is a knock on anyone's team. First, a lot of brands simply don't know the bonus exists, it's one program detail buried inside a much bigger compliance requirement. Second, the ones who do know about it often assume the LCA costs more than it returns, which is a reasonable assumption if you've never priced one out. For a brand already paying substantially into six figures in Oregon fees, a properly scoped LCA typically costs a fraction of what the bonuses can return, and that math is worth running before writing the assessment off.
+Two reasons, and neither is a knock on anyone's team. Most brands don't know the bonus exists, it's one program detail buried inside a much bigger compliance requirement. The ones who do know about it often assume the LCA costs more than it returns. For a brand already paying six figures in Oregon fees, a properly scoped LCA typically costs a fraction of what the bonuses return.
 
-The catch is time, not cost: the LCA needs third-party review, which means it has to start well before your next reporting cycle, not the week you decide to look into it. Our LCA partners generally turn a study around in 6-8 weeks once it's scoped, but that clock needs to start early enough to leave room for the review step above.
+The catch is time, not cost: the LCA needs third-party review, so it has to start well before your next reporting cycle, not the week you decide to look into it.
+
+As Lauren at Planet FWD put it: **"The two objections we hear most are 'this will take forever' and 'this will cost more than it's worth.' Neither is true anymore. Our LCAs are ISO-compliant, third-party reviewed, and done in 6 to 8 weeks, at roughly half the cost of a traditional consultancy. Once a brand sees what Oregon's bonuses can actually return, the assessment tends to look less like a cost and more like the thing that was leaving money on the table."**
 
 ## The LCA keeps working after Oregon
 
 This is the part that changes the math for a lot of brands. The same assessment that qualifies you for Oregon's bonuses feeds your Scope 3 emissions reporting, answers the product-level sustainability data retailers are increasingly asking for directly, and gives your R&D team data to weigh packaging formats against before committing to one.
 
 It also does something for your marketing team: any on-pack or investor-facing sustainability claim is only as credible as the data behind it, and a third-party-reviewed LCA is exactly the kind of verification that separates a real claim from a vague one. An LCA built for a single state bonus is a compliance cost. An LCA built once and reused across reporting, retail requests, product decisions, and marketing claims is closer to infrastructure.
-
-As Lauren at Planet FWD put it: **"[PLACEHOLDER — insert real quote from Planet FWD before publishing.]"**
 
 ## If you're weighing whether an LCA makes sense for your brand
 
