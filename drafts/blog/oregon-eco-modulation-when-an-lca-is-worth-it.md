@@ -55,20 +55,36 @@ Here's the mechanism. Oregon's EPR fee structure includes eco-modulation: a way 
 
 The assessment itself has to cover the full range of metrics Oregon scores, not just carbon. Acidification, eutrophication, and plastic leakage are all part of the picture, so a narrow carbon-only study won't qualify.
 
+## What that actually looks like against a fee bill
+
+Say your brand pays $300,000 a year in Oregon base fees. Filing for the disclosure bonus alone, before you've changed a single component, can return up to $20,000 per LCA report just for measuring and reporting where you stand. If that same assessment shows a packaging change in the top reduction tier, the design-improvement bonus adds up to $50,000 more per report on top of that. Run both across a few SKU batches, and the number stops looking like a rounding error on your compliance budget.
+
+Reuse and refill formats work on a different clock: the bonus caps out at $40,000-$50,000 per SKU batch per year, but it's a three-year cycle, not a one-time credit. A brand that qualifies for the full run can be looking at up to $1.5 million over that period. That's the bonus most brands haven't modeled at all, because it assumes a packaging format change most haven't considered yet.
+
+## How the process works
+
+Three steps, and none of them happen the week before your report is due:
+
+1. **Scope and run the assessment.** An LCA partner builds an ISO-compliant study covering the full set of metrics Oregon scores, not just the ones that make a brand look good.
+2. **Get it third-party reviewed.** This is the step most timelines miss. Independent review takes real calendar time, and it has to finish before you file, not after.
+3. **File it with your report.** The bonus applies against your base fee for that cycle, and the underlying data carries forward into next year's report instead of starting over.
+
 ## Why most brands skip it
 
 Two reasons, and neither is a knock on anyone's team. First, a lot of brands simply don't know the bonus exists, it's one program detail buried inside a much bigger compliance requirement. Second, the ones who do know about it often assume the LCA costs more than it returns, which is a reasonable assumption if you've never priced one out. For a brand already paying substantially into six figures in Oregon fees, a properly scoped LCA typically costs a fraction of what the bonuses can return, and that math is worth running before writing the assessment off.
 
-The catch is time, not cost: the LCA needs third-party review, which means it has to start well before your next reporting cycle, not the week you decide to look into it.
+The catch is time, not cost: the LCA needs third-party review, which means it has to start well before your next reporting cycle, not the week you decide to look into it. Our LCA partners generally turn a study around in 6-8 weeks once it's scoped, but that clock needs to start early enough to leave room for the review step above.
 
 ## The LCA keeps working after Oregon
 
-This is the part that changes the math for a lot of brands. The same assessment that qualifies you for Oregon's bonuses feeds your Scope 3 emissions reporting, answers the product-level sustainability data retailers are increasingly asking for directly, and gives your R&D team data to weigh packaging formats against before committing to one. An LCA built for a single state bonus is a compliance cost. An LCA built once and reused across reporting, retail requests, and product decisions is closer to infrastructure.
+This is the part that changes the math for a lot of brands. The same assessment that qualifies you for Oregon's bonuses feeds your Scope 3 emissions reporting, answers the product-level sustainability data retailers are increasingly asking for directly, and gives your R&D team data to weigh packaging formats against before committing to one.
+
+It also does something for your marketing team: any on-pack or investor-facing sustainability claim is only as credible as the data behind it, and a third-party-reviewed LCA is exactly the kind of verification that separates a real claim from a vague one. An LCA built for a single state bonus is a compliance cost. An LCA built once and reused across reporting, retail requests, product decisions, and marketing claims is closer to infrastructure.
 
 As Lauren at Planet FWD put it: **"[PLACEHOLDER — insert real quote from Planet FWD before publishing.]"**
 
 ## If you're weighing whether an LCA makes sense for your brand
 
-It usually comes down to two questions: how much are you currently paying in Oregon eco-mod-eligible fees, and do you have other reasons to want this data anyway (Scope 3, retailer requests, an upcoming packaging redesign)? If the answer to either is substantial, the assessment tends to pay for itself well before you count the bonus.
+It usually comes down to three questions: how much are you currently paying in Oregon eco-mod-eligible fees, do you have a packaging change in the pipeline that might qualify for the design or reuse/refill tiers, and do you have other reasons to want this data anyway (Scope 3, retailer requests, an on-pack claim you want to be able to defend)? If the answer to any of those is substantial, the assessment tends to pay for itself well before you count the bonus.
 
 We work with two LCA partners we trust, Planet FWD and Greenly. If you'd like an introduction to either one, reach out and we'll make it happen.
