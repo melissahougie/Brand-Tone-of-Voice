@@ -9,6 +9,7 @@ Before writing or editing anything meant to sound like rePurpose Global, read bo
 
 1. `reference/TONE_OF_VOICE.md` — the full guide: personality traits, the two-register model, sentence-level patterns, vocabulary rules, an AI-tells checklist, and a writer's checklist.
 2. `reference/winning-example-post.md` — "What a Multi-State EPR Season Actually Tests," picked by the brand owner as the gold-standard example of this voice in practice. Use it as the calibration reference, not just the written rules — if a draft doesn't feel like it belongs next to this post, it's off.
+3. `../../content/repurpose-global/voice-feedback/2026-07-brand-voice-examples.md` — real internal review feedback (not great vs. better) on two LinkedIn posts. This is where the social-specific humor/metaphor calibration below comes from — read it before writing social copy specifically.
 
 Read both in full before drafting anything nontrivial (more than a paragraph or two). For a quick edit or a one-line rewrite, the cheat sheet below is usually enough.
 
@@ -25,6 +26,9 @@ rePurpose sells dry regulatory compliance (EPR filings, deadlines, fees) and emo
 - Frame setbacks as "this happens to good teams because the situation is new/fast-moving," never as the reader's failure to know better.
 - Close with a numbered, concrete action list, then a CTA weighted to where it sits on the page (Get Started / Talk to a Specialist / Book a Demo).
 - Use house vocabulary consistently: "credible" (paired with "without greenwashing"), "streamline," "waste workers" (never "waste pickers"), state EPR terms spelled out on first use.
+- **On social specifically**: a light joke or an extended metaphor (a flight/boarding-pass conceit for a deadline post, say) is confirmed on-brand, including a single accent emoji — but only when it still carries the actual specifics (exact day count, exact date, what's covered). The metaphor delivers the specificity, it doesn't replace it. This is more license than blog/press content gets.
+- Never state a flat generalization about "most brands" or "the industry" without an actionable specific attached ("most companies feel behind" was cut in review for exactly this, even though it isn't a harsh line) — it reads as generic and as judgment at the same time.
+- In event/webinar promo copy, name the specific expertise or hard questions you can answer, not just the format ("no slides, no scripted answers" describes logistics, not value).
 
 **Don't (AI-tells — see guide section 6 for the full list):**
 - Em dashes as dramatic pauses. Cap at 2–3 per post; default to a period or comma.
