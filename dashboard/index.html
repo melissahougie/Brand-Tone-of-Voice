@@ -79,14 +79,6 @@
   .dot.pending { background: var(--orange); }
   .dot.off { background: var(--ink-faint); }
 
-  nav.jump { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
-  nav.jump a {
-    font-size: 13px; font-weight: 600; text-decoration: none;
-    padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line);
-    background: var(--surface); color: var(--ink);
-  }
-  nav.jump a:hover { border-color: var(--orange); }
-
   section.block { margin-bottom: 52px; }
   .block-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;}
   .block-head h2 { font-size: 19px; margin: 0; }
@@ -195,18 +187,12 @@
     <div class="meta">
       <div>Period: Jan 1 – Jul 21, 2026 (YTD) · Generated Jul 21, 2026</div>
       <div class="chips">
-        <span class="chip"><span class="dot live"></span>PR — live sheet</span>
-        <span class="chip"><span class="dot live"></span>HubSpot — live CRM</span>
         <span class="chip"><span class="dot pending"></span>GA4 — snapshot export</span>
+        <span class="chip"><span class="dot live"></span>HubSpot — live CRM</span>
+        <span class="chip"><span class="dot live"></span>PR — live sheet</span>
       </div>
     </div>
   </header>
-
-  <nav class="jump">
-    <a href="#ga">GA4</a>
-    <a href="#hubspot">HubSpot</a>
-    <a href="#pr">PR</a>
-  </nav>
 
   <!-- ================= GOOGLE ANALYTICS ================= -->
   <section class="block" id="ga">
