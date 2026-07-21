@@ -1,0 +1,528 @@
+<title>rePurpose Global — Marketing &amp; Growth Dashboard</title>
+<style>
+  :root {
+    --orange: #F9680A;
+    --orange-soft: #FBE6D8;
+    --turquoise: #064F52;
+    --turquoise-soft: #D0E6E8;
+    --ink: #1A1A1A;
+    --ink-muted: #666666;
+    --ink-faint: #999999;
+    --line: #E5E5E5;
+    --surface: #FFFFFF;
+    --surface-sunken: #F7F7F6;
+    --bg: #FCFCFB;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05);
+  }
+  :root[data-theme="dark"] {
+    --ink: #F2F2F2;
+    --ink-muted: #B7B7B7;
+    --ink-faint: #8A8A8A;
+    --line: #2E2E2E;
+    --surface: #1E2222;
+    --surface-sunken: #191C1C;
+    --bg: #141616;
+    --orange-soft: #3A2317;
+    --turquoise-soft: #163333;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #F2F2F2;
+      --ink-muted: #B7B7B7;
+      --ink-faint: #8A8A8A;
+      --line: #2E2E2E;
+      --surface: #1E2222;
+      --surface-sunken: #191C1C;
+      --bg: #141616;
+      --orange-soft: #3A2317;
+      --turquoise-soft: #163333;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "BDO Grotesk", Arimo, "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  /* Header */
+  header.top {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    align-items: flex-start; justify-content: space-between;
+    padding-bottom: 20px; margin-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .globe {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: conic-gradient(from 210deg, var(--orange), var(--turquoise), var(--orange));
+    flex: none;
+  }
+  .brand h1 { font-size: 17px; margin: 0; letter-spacing: -0.01em; }
+  .brand p { margin: 2px 0 0; font-size: 12.5px; color: var(--ink-muted); }
+  .meta { text-align: right; font-size: 12.5px; color: var(--ink-muted); }
+  .chips { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .chip {
+    font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 100px;
+    display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot.live { background: var(--turquoise); }
+  :root[data-theme="dark"] .dot.live, @media (prefers-color-scheme: dark) { }
+  .dot.pending { background: var(--orange); }
+  .dot.off { background: var(--ink-faint); }
+
+  nav.jump { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+  nav.jump a {
+    font-size: 13px; font-weight: 600; text-decoration: none;
+    padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--surface); color: var(--ink);
+  }
+  nav.jump a:hover { border-color: var(--orange); }
+
+  section.block { margin-bottom: 52px; }
+  .block-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;}
+  .block-head h2 { font-size: 19px; margin: 0; }
+  .block-head .sub { font-size: 12.5px; color: var(--ink-muted); }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 22px; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 16px; box-shadow: var(--shadow);
+  }
+  .kpi .label { font-size: 11.5px; color: var(--ink-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+  .kpi .value { font-size: 26px; font-weight: 700; margin-top: 6px; letter-spacing: -0.01em; }
+  .kpi .note { font-size: 11.5px; color: var(--ink-faint); margin-top: 4px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: start; }
+  @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .card h3 { font-size: 14px; margin: 0 0 14px; }
+  .card .foot-note { font-size: 11.5px; color: var(--ink-faint); margin-top: 10px; }
+
+  /* bar chart */
+  .barchart { display: flex; flex-direction: column; gap: 10px; }
+  .barrow { display: grid; grid-template-columns: 150px 1fr 74px; align-items: center; gap: 10px; font-size: 12.5px; }
+  .barrow .barlabel { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bartrack { background: var(--surface-sunken); border-radius: 6px; height: 14px; overflow: hidden; }
+  .barfill { height: 100%; border-radius: 6px; }
+  .barrow .barval { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-muted); }
+
+  table.data { width: 100%; border-collapse: collapse; font-size: 12.8px; }
+  table.data th {
+    text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .03em;
+    color: var(--ink-faint); font-weight: 600; padding: 0 10px 8px; border-bottom: 1px solid var(--line);
+  }
+  table.data td { padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+  table.data a.ext { color: var(--turquoise); text-decoration: none; font-weight: 600; }
+  :root[data-theme="dark"] table.data a.ext { color: #6fd0d4; }
+
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .badge.published { background: var(--turquoise); color: #fff; }
+  .badge.pending { background: var(--orange); color: #1a1208; }
+  .badge.advanced { background: var(--turquoise-soft); color: var(--turquoise); }
+  .badge.early { background: var(--orange-soft); color: #8a3c05; }
+  :root[data-theme="dark"] .badge.advanced { color: #8fdfe2; }
+  :root[data-theme="dark"] .badge.early { color: #ffb27a; }
+
+  /* placeholder / not-connected card */
+  .placeholder {
+    border: 1.5px dashed var(--line); border-radius: 14px; padding: 26px 22px;
+    background: var(--surface-sunken); text-align: center;
+  }
+  .placeholder .icon {
+    width: 40px; height: 40px; margin: 0 auto 10px; border-radius: 10px;
+    background: var(--orange-soft); display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .placeholder h4 { margin: 0 0 6px; font-size: 14.5px; }
+  .placeholder p { margin: 0 0 12px; font-size: 12.8px; color: var(--ink-muted); max-width: 460px; margin-inline: auto; }
+  .placeholder code { background: var(--surface); border: 1px solid var(--line); padding: 1px 6px; border-radius: 5px; font-size: 11.5px; }
+
+  .funnel { display: flex; flex-direction: column; gap: 8px; }
+  .funnel-row { display: grid; grid-template-columns: 120px 1fr 90px; align-items: center; gap: 10px; }
+  .funnel-bar { height: 30px; border-radius: 8px; display: flex; align-items: center; padding-left: 10px; color: #fff; font-weight: 700; font-size: 12px; }
+  .funnel-label { font-size: 12.8px; font-weight: 600; }
+  .funnel-val { text-align: right; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--ink-muted); }
+
+  .legend-row { display: flex; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
+  .legend-item { font-size: 12px; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
+  .legend-item .sw { width: 10px; height: 10px; border-radius: 3px; }
+
+  footer.dash-foot {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--ink-faint); line-height: 1.7;
+  }
+  footer.dash-foot a { color: var(--turquoise); text-decoration: none; font-weight: 600; }
+  :root[data-theme="dark"] footer.dash-foot a { color: #6fd0d4; }
+
+  .two-col-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+  @media (max-width: 600px) { .two-col-list { grid-template-columns: 1fr; } }
+  .list-row { display: flex; justify-content: space-between; font-size: 12.8px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .list-row span:last-child { font-variant-numeric: tabular-nums; color: var(--ink-muted); }
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <div class="globe" aria-hidden="true"></div>
+      <div>
+        <h1>rePurpose Global</h1>
+        <p>Marketing &amp; Growth Dashboard</p>
+      </div>
+    </div>
+    <div class="meta">
+      <div>Period: Jan 1 – Jul 21, 2026 (YTD) · Generated Jul 21, 2026</div>
+      <div class="chips">
+        <span class="chip"><span class="dot live"></span>PR — live sheet</span>
+        <span class="chip"><span class="dot live"></span>HubSpot — live CRM</span>
+        <span class="chip"><span class="dot pending"></span>GA4 — snapshot export</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="jump">
+    <a href="#ga">Website Analytics</a>
+    <a href="#hubspot">Pipeline &amp; Funnel</a>
+    <a href="#pr">Earned Media / PR</a>
+  </nav>
+
+  <!-- ================= GOOGLE ANALYTICS ================= -->
+  <section class="block" id="ga">
+    <div class="block-head">
+      <h2>Website Analytics</h2>
+      <div class="sub">Source: GA4 property "rePurpose Global" · Reports snapshot export, Jan 1–Jul 21 2026</div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Active users (YTD)</div><div class="value">130,236</div><div class="note">sum of 30 weekly buckets</div></div>
+      <div class="kpi"><div class="label">New users (YTD)</div><div class="value">119,558</div><div class="note">92% of active users</div></div>
+      <div class="kpi"><div class="label">Sessions (YTD)</div><div class="value">170,699</div><div class="note">across all channels</div></div>
+      <div class="kpi"><div class="label">Avg. engagement</div><div class="value">34.4s</div><div class="note">per active user, weekly avg</div></div>
+      <div class="kpi"><div class="label">Page views (YTD)</div><div class="value">236,212</div><div class="note">top 1,011 titles</div></div>
+      <div class="kpi"><div class="label">Form submissions</div><div class="value">3,417</div><div class="note">key conversion event</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Weekly active users — 30 weeks</h3>
+        <div id="ga-trend"></div>
+        <div class="foot-note">Week 29 is partial (in progress at export time) — expect it to fill in on the next pull.</div>
+      </div>
+      <div class="card">
+        <h3>Sessions by channel</h3>
+        <div id="ga-channels" class="barchart"></div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>Top pages by views</h3>
+        <div class="table-scroll">
+          <table class="data" id="ga-pages-table">
+            <thead><tr><th>Page / screen</th><th class="num">Views</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Audience</h3>
+        <div style="margin-bottom:16px;">
+          <div class="foot-note" style="margin:0 0 8px;">Top countries by active users</div>
+          <div id="ga-countries" class="two-col-list"></div>
+        </div>
+        <div>
+          <div class="foot-note" style="margin:0 0 8px;">Age bands (identified users)</div>
+          <div id="ga-age" class="barchart"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HUBSPOT ================= -->
+  <section class="block" id="hubspot">
+    <div class="block-head">
+      <h2>Pipeline &amp; Funnel — HubSpot</h2>
+      <div class="sub">Source: HubSpot CRM, live query · Portal 6173040 · YTD = Jan 1–Jul 21, 2026</div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Total contacts</div><div class="value">158,666</div><div class="note">all-time database</div></div>
+      <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,588</div><div class="note">created since Jan 1</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,528</div><div class="note">entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">4,631</div><div class="note">entered SQL stage YTD</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Current lifecycle snapshot</h3>
+        <div class="funnel" id="hs-funnel"></div>
+        <div class="foot-note">Point-in-time count of contacts currently sitting in each stage (not a YTD flow) — SQL count sits below the 4,631 who entered it YTD because many have since progressed to Closed Won or dropped off.</div>
+      </div>
+      <div class="card">
+        <h3>Top-performing inbound forms &amp; emails</h3>
+        <div class="placeholder">
+          <div class="icon">🔒</div>
+          <h4>Needs additional HubSpot scopes</h4>
+          <p>The connected HubSpot app can query CRM records but isn't authorized for content/form analytics (<code>cms-analytics-api-access</code>) or marketing email metrics. Reauthorize the HubSpot connector with those permissions to light this section up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PR ================= -->
+  <section class="block" id="pr">
+    <div class="block-head">
+      <h2>Earned Media / PR</h2>
+      <div class="sub">Source: PR tracking sheet, live · <a href="https://docs.google.com/spreadsheets/d/1V3MDRBKolk2KLYFNXAoSPYNwM_DGp3cc6IT_f8Epgv0" style="color:var(--turquoise); font-weight:600; text-decoration:none;">open sheet</a></div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Published hits</div><div class="value">7</div><div class="note">since 6/25/26</div></div>
+      <div class="kpi"><div class="label">Published reach</div><div class="value">612,575</div><div class="note">UVPM/circulation, known values</div></div>
+      <div class="kpi"><div class="label">Active pitches</div><div class="value">14</div><div class="note">in progress across 2 stages</div></div>
+      <div class="kpi"><div class="label">Potential pipeline reach</div><div class="value">14.0M</div><div class="note">combined UVPM across open conversations</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Published reach by outlet</h3>
+        <div id="pr-reach-chart" class="barchart"></div>
+        <div class="foot-note">"Inside The Deal Room" also published (6/25) but doesn't report circulation — excluded from this chart, included in the hit count.</div>
+      </div>
+      <div class="card">
+        <h3>Coverage log</h3>
+        <div class="table-scroll">
+          <table class="data" id="pr-coverage-table">
+            <thead><tr><th>Date</th><th>Outlet</th><th class="num">Reach</th><th>Status</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Active pipeline — pitches &amp; opportunities</h3>
+      <div class="legend-row">
+        <span class="legend-item"><span class="sw" style="background:var(--turquoise-soft)"></span>Advanced (interview/QA stage)</span>
+        <span class="legend-item"><span class="sw" style="background:var(--orange-soft)"></span>Early (outreach/follow-up)</span>
+      </div>
+      <div class="table-scroll">
+        <table class="data" id="pr-pipeline-table">
+          <thead><tr><th>Outlet(s)</th><th class="num">Reach</th><th>Background</th><th>Status / next step</th><th>Stage</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="dash-foot">
+    <div><strong>Refreshing this dashboard:</strong></div>
+    <div>• <strong>PR:</strong> re-open the tracking sheet link above — the sheet itself is the live source, this page is a manual snapshot.</div>
+    <div>• <strong>GA:</strong> from the GA4 property, use Share → Export to Google Sheets (or Looker Studio export) on the same date range and drop the new figures in.</div>
+    <div>• <strong>HubSpot:</strong> figures pulled live via the connected HubSpot CRM integration; forms/email sections need the connector reauthorized with content-analytics and marketing-email scopes.</div>
+    <div style="margin-top:8px;">Built for rePurpose Global · data as of July 21, 2026</div>
+  </footer>
+
+</div>
+
+<script>
+  const COLOR = {
+    orange: '#F9680A',
+    turquoise: '#064F52',
+    turquoiseSoft: '#8fc3c5',
+  };
+
+  function fmt(n) {
+    return Math.round(n).toLocaleString('en-US');
+  }
+
+  // ---------- GA: weekly active users trend (line chart) ----------
+  (function renderTrend() {
+    const data = [1410,4145,5373,4673,4932,4505,5573,6127,6851,3804,5193,5548,4628,4787,4322,3774,4169,3862,3453,3745,3134,3083,3943,4128,4531,4584,5526,5246,4021,1166];
+    const w = 560, h = 160, pad = 28;
+    const max = Math.max(...data), min = 0;
+    const stepX = (w - pad * 2) / (data.length - 1);
+    const points = data.map((v, i) => {
+      const x = pad + i * stepX;
+      const y = h - pad - ((v - min) / (max - min)) * (h - pad * 2);
+      return [x, y];
+    });
+    const linePath = points.map((p, i) => (i === 0 ? 'M' : 'L') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+    const areaPath = linePath + ` L${points[points.length-1][0].toFixed(1)},${h-pad} L${points[0][0].toFixed(1)},${h-pad} Z`;
+
+    let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:100%;" role="img" aria-label="Weekly active users trend">`;
+    svg += `<line x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}" stroke="var(--line)" stroke-width="1"/>`;
+    svg += `<path d="${areaPath}" fill="${COLOR.turquoise}" opacity="0.12" stroke="none"/>`;
+    svg += `<path d="${linePath}" fill="none" stroke="${COLOR.turquoise}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    // direct labels: first, peak, last
+    const peakIdx = data.indexOf(max);
+    [0, peakIdx, data.length - 1].forEach(i => {
+      const [x, y] = points[i];
+      svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${COLOR.turquoise}"/>`;
+      svg += `<text x="${x.toFixed(1)}" y="${(y-9).toFixed(1)}" font-size="10.5" fill="var(--ink-muted)" text-anchor="${i===0?'start':(i===data.length-1?'end':'middle')}">${fmt(data[i])}</text>`;
+    });
+    svg += `<text x="${pad}" y="${h-8}" font-size="10" fill="var(--ink-faint)">Wk 1</text>`;
+    svg += `<text x="${w-pad}" y="${h-8}" font-size="10" fill="var(--ink-faint)" text-anchor="end">Wk 30</text>`;
+    svg += `</svg>`;
+    document.getElementById('ga-trend').innerHTML = svg;
+  })();
+
+  // ---------- generic horizontal bar chart renderer ----------
+  function renderBars(containerId, rows, opts) {
+    opts = opts || {};
+    const color = opts.color || COLOR.turquoise;
+    const max = Math.max(...rows.map(r => r[1]));
+    const el = document.getElementById(containerId);
+    el.innerHTML = rows.map(([label, val]) => {
+      const pct = max > 0 ? (val / max) * 100 : 0;
+      return `<div class="barrow">
+        <div class="barlabel" title="${label}">${label}</div>
+        <div class="bartrack"><div class="barfill" style="width:${pct.toFixed(1)}%; background:${color};"></div></div>
+        <div class="barval">${opts.fmt ? opts.fmt(val) : fmt(val)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  renderBars('ga-channels', [
+    ['Direct', 64840], ['Organic Search', 40462], ['Referral', 25342],
+    ['Email', 20383], ['Paid Search', 8664], ['Organic Social', 2323]
+  ], { color: COLOR.orange });
+
+  renderBars('ga-age', [
+    ['18–24', 4618], ['25–34', 4257], ['35–44', 2572],
+    ['45–54', 2315], ['55–64', 1553], ['65+', 860]
+  ], { color: COLOR.turquoise });
+
+  renderBars('pr-reach-chart', [
+    ['Corporate Counsel Business Journal', 420000],
+    ['DC Velocity', 50000],
+    ['Packaging Strategies', 49000],
+    ['Recycling Today', 48295],
+    ['Packaging Dive', 25572],
+    ['Supply & Demand Chain Exec.', 19708]
+  ], { color: COLOR.turquoise });
+
+  // ---------- GA top pages table ----------
+  (function () {
+    const rows = [
+      ['Plastic Recovery Claims and Packaging Compliance Platform', 32084],
+      ['About rePurpose Global | Plastic Action Leaders', 11368],
+      ['Guides', 10418],
+      ['Plastic Recovery Claims & Packaging Compliance | rePurpose Global', 9693],
+      ['Packaging Compliance Made Simple | rePurpose Global', 7348],
+      ['EPR Compliance Checklist 2026', 7080],
+      ['Not Found (404)', 6474],
+      ['2026 EPR compliance checklist', 6405],
+      ['Contact rePurpose Global | Start Your Impact', 5377],
+      ['Verified Plastic Recovery Claims | rePurpose Global', 4867],
+    ];
+    const tbody = document.querySelector('#ga-pages-table tbody');
+    tbody.innerHTML = rows.map(([title, views]) =>
+      `<tr><td>${title}</td><td class="num">${fmt(views)}</td></tr>`
+    ).join('');
+  })();
+
+  // ---------- GA top countries ----------
+  (function () {
+    const rows = [
+      ['United States', 74678], ['Singapore', 9602], ['China', 5598], ['India', 4483], ['Canada', 2761],
+      ['Netherlands', 2436], ['United Kingdom', 2305], ['Ireland', 1875], ['Germany', 1142], ['Australia', 1084],
+    ];
+    const el = document.getElementById('ga-countries');
+    el.innerHTML = rows.map(([c, v]) => `<div class="list-row"><span>${c}</span><span>${fmt(v)}</span></div>`).join('');
+  })();
+
+  // ---------- HubSpot funnel ----------
+  (function () {
+    const stages = [
+      ['MQL', 2833, COLOR.orange],
+      ['SQL', 4432, COLOR.turquoise],
+    ];
+    const max = Math.max(...stages.map(s => s[1]));
+    const el = document.getElementById('hs-funnel');
+    el.innerHTML = stages.map(([label, val, color]) => {
+      const pct = Math.max(18, (val / max) * 100);
+      return `<div class="funnel-row">
+        <div class="funnel-label">${label}</div>
+        <div class="funnel-bar" style="width:${pct.toFixed(1)}%; background:${color};">${fmt(val)}</div>
+        <div class="funnel-val">current</div>
+      </div>`;
+    }).join('');
+  })();
+
+  // ---------- PR coverage table ----------
+  (function () {
+    const rows = [
+      ['7/9/2026', 'Recycling Today', 48295, 'pending', 'Reviewing press release under embargo'],
+      ['7/2/2026', 'MedEsthetics', 20000, 'pending', 'Writing a report'],
+      ['7/2/2026', 'Plastics Today', 34141, 'pending', 'Reviewing press release under embargo'],
+      ['6/30/2026', 'Supply & Demand Chain Executive', 19708, 'published', 'Featured Packaging Simulator announcement'],
+      ['6/30/2026', 'DC Velocity', 50000, 'published', 'Featured Packaging Simulator announcement'],
+      ['6/26/2026', 'Packaging Strategies', 49000, 'published', 'Featured Packaging Simulator announcement'],
+      ['6/26/2026', 'Corporate Counsel Business Journal', 420000, 'published', 'Featured Packaging Simulator announcement'],
+      ['6/26/2026', 'Packaging Dive', 25572, 'published', "Picked up in “What We're Reading” roundup"],
+      ['6/25/2026', 'Recycling Today', 48295, 'published', 'Featured Packaging Simulator announcement'],
+      ['6/25/2026', 'Inside The Deal Room', null, 'published', 'Featured Packaging Simulator announcement'],
+    ];
+    const tbody = document.querySelector('#pr-coverage-table tbody');
+    tbody.innerHTML = rows.map(([date, outlet, reach, status, note]) =>
+      `<tr>
+        <td>${date}</td>
+        <td>${outlet}<div style="color:var(--ink-faint); font-size:11.5px; margin-top:2px;">${note}</div></td>
+        <td class="num">${reach ? fmt(reach) : '—'}</td>
+        <td><span class="badge ${status}">${status === 'published' ? 'Published' : 'Pending'}</span></td>
+      </tr>`
+    ).join('');
+  })();
+
+  // ---------- PR pipeline table ----------
+  (function () {
+    const rows = [
+      // advanced tier
+      { outlets: 'Packaging Dive · Waste Dive · Waste360', reach: '25,572 / 25,398 / 17,588', bg: 'Freelancer discussing what brands are doing to prep for the source-reduction deadline', status: 'Interview scheduled July 22', tier: 'advanced' },
+      { outlets: 'The Dieline', reach: '84,758', bg: 'Writing an article on SB 54', status: 'Submitted Q&A, monitoring for coverage', tier: 'advanced' },
+      { outlets: 'The Packer', reach: '22,885', bg: 'Writing an article', status: 'Q&A due July 21', tier: 'advanced' },
+      { outlets: 'North Bay Business Journal', reach: '629,899', bg: 'Interviewed and developed an article', status: 'Interview completed — monitoring for coverage', tier: 'advanced' },
+      // early tier
+      { outlets: 'Smart Industry · New Equipment Digest · Plant Services · Control Design', reach: '180,000 / 100,000 / 50,000 / 35,000', bg: 'Reviewing press materials, considering angle/fit', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Chain Store Age', reach: '71,576', bg: 'Offered a byline', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Beauty Packaging', reach: '92,803', bg: 'Reviewing press release under embargo', status: 'Working to schedule', tier: 'early' },
+      { outlets: 'Fast Company', reach: '5,894,800', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'FreightWaves', reach: '611,535', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Design World', reach: '30,693', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Waste Dive · Packaging Dive', reach: '25,398 / 25,572', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Supermarket Guru', reach: '2,867', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Mass Market Retailer · Chain Drug Review', reach: '23,093 / 9,957', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Footwear News', reach: '6,070,099', bg: 'Exploring a footwear-specific packaging angle', status: 'Offer thought leadership on EPR + source reduction for footwear', tier: 'early' },
+    ];
+    const tbody = document.querySelector('#pr-pipeline-table tbody');
+    tbody.innerHTML = rows.map(r =>
+      `<tr>
+        <td>${r.outlets}</td>
+        <td class="num">${r.reach}</td>
+        <td>${r.bg}</td>
+        <td>${r.status}</td>
+        <td><span class="badge ${r.tier}">${r.tier === 'advanced' ? 'Advanced' : 'Early'}</span></td>
+      </tr>`
+    ).join('');
+  })();
+</script>
