@@ -172,22 +172,6 @@
   @media (max-width: 600px) { .two-col-list { grid-template-columns: 1fr; } }
   .list-row { display: flex; justify-content: space-between; font-size: 12.8px; padding: 6px 0; border-bottom: 1px solid var(--line); }
   .list-row span:last-child { font-variant-numeric: tabular-nums; color: var(--ink-muted); }
-
-  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    font-size: 11.5px; padding: 4px 10px; border-radius: 100px; background: var(--surface-sunken);
-    border: 1px solid var(--line); color: var(--ink-muted); white-space: nowrap;
-  }
-  .timeline-item { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  .timeline-item:last-child { border-bottom: none; }
-  .timeline-item .tl-period { font-size: 12px; font-weight: 700; color: var(--ink); white-space: nowrap; }
-  .timeline-item .tl-text { font-size: 12.8px; color: var(--ink-muted); line-height: 1.5; }
-  .creative-ex { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; background: var(--surface-sunken); }
-  .creative-ex .cx-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--ink-faint); font-weight: 600; margin-bottom: 4px; }
-  .creative-ex .cx-hook { font-size: 12.8px; color: var(--ink); line-height: 1.45; }
-  .note-list { display: flex; flex-direction: column; gap: 8px; }
-  .note-item { font-size: 12.8px; color: var(--ink-muted); padding-left: 14px; position: relative; line-height: 1.5; }
-  .note-item::before { content: "•"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 </style>
 
 <div class="wrap">
@@ -205,7 +189,6 @@
       <div class="chips">
         <span class="chip"><span class="dot pending"></span>GA4 — snapshot export</span>
         <span class="chip"><span class="dot live"></span>HubSpot — live CRM</span>
-        <span class="chip"><span class="dot pending"></span>Demand Gen — PDF report</span>
         <span class="chip"><span class="dot live"></span>PR — live sheet</span>
       </div>
     </div>
@@ -317,103 +300,6 @@
         </div>
       </div>
       <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. July is partial (through the 21st).</div>
-    </div>
-  </section>
-
-  <!-- ================= DEMAND GEN ADS ================= -->
-  <section class="block" id="demandgen">
-    <div class="block-head">
-      <h2>Demand Gen Ads</h2>
-      <div class="sub">Source: rePurpose × Veza Digital, "All Time Performance Data Paid Media" (PDF, Jun 10 2026) · Google Ads + LinkedIn Ads</div>
-    </div>
-
-    <div class="kpi-row">
-      <div class="kpi"><div class="label">Google Ads campaigns</div><div class="value">5</div><div class="note">active, 80/5/5/3/6% split</div></div>
-      <div class="kpi"><div class="label">LinkedIn Ads campaigns</div><div class="value">2</div><div class="note">60/40% split</div></div>
-      <div class="kpi"><div class="label">Program live since</div><div class="value">Jul 16, 2025</div><div class="note">~11 months running</div></div>
-      <div class="kpi"><div class="label">Backfilled MQLs</div><div class="value">31</div><div class="note">Aug–Dec 2025, pre-tracking</div></div>
-    </div>
-
-    <div class="card">
-      <h3>Monthly performance trend</h3>
-      <div class="placeholder">
-        <div class="icon">🔒</div>
-        <h4>Numbers not pulled in yet</h4>
-        <p>The PDF's monthly KPI table (cost, impressions, clicks, conversions, MQLs by month) is an embedded screenshot too small to transcribe reliably — rather than guess digits, this is left out. Two live sources could fill it in: the <a href="https://app.databox.com/datawall/06b8e7deff79d3f1698a17cd4d35d1be437c3886896229c?itemId=1956658" style="color:var(--turquoise); font-weight:600;">Databox datawall</a> you linked (returned a 403 — needs to be shared/authenticated), or the linked "Key Results" Google Sheets — <a href="https://docs.google.com/spreadsheets/d/1UMnZG2HEcOC6ymIud9OpRM7UsLKIM1XvknaBcnwa3Gw" style="color:var(--turquoise); font-weight:600;">LinkedIn</a> and the <a href="https://docs.google.com/spreadsheets/d/12ZyKzkYQn6ZsVH4EyW0y0izmuU__J-slsCTeHnS-1kA" style="color:var(--turquoise); font-weight:600;">all-time search terms report</a> for Google Ads (the Google Ads Key Results sheet link itself wasn't visible as plain text in the PDF).</p>
-      </div>
-    </div>
-
-    <div class="grid-2" style="margin-top:16px;">
-      <div class="card">
-        <h3>Google Ads — active campaigns</h3>
-        <div class="table-scroll">
-          <table class="data" id="dg-google-table">
-            <thead><tr><th>Campaign</th><th>Ad groups</th><th class="num">Budget</th><th>Comments</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="card">
-        <h3>LinkedIn Ads — active campaigns</h3>
-        <div class="table-scroll">
-          <table class="data" id="dg-linkedin-table">
-            <thead><tr><th>Campaign</th><th>Ad sets</th><th class="num">Budget</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>Campaign timeline</h3>
-      <div id="dg-timeline"></div>
-    </div>
-
-    <div class="grid-2" style="margin-top:16px;">
-      <div class="card">
-        <h3>Google Ads targeting</h3>
-        <div class="foot-note" style="margin:0 0 6px;">Nationwide · Ages 18–64 · all genders/incomes</div>
-        <div class="foot-note" style="margin:12px 0 6px; font-weight:600; color:var(--ink);">Top audience segments <span style="font-weight:400; color:var(--ink-faint);">(35% of impr./clicks, 40% of conversions)</span></div>
-        <div class="tag-list" id="dg-google-segments"></div>
-        <div class="foot-note" style="margin:14px 0 6px; font-weight:600; color:var(--ink);">Exclusions</div>
-        <div class="tag-list" id="dg-google-exclusions"></div>
-      </div>
-      <div class="card">
-        <h3>LinkedIn Ads targeting</h3>
-        <div class="foot-note" style="margin:0 0 6px;">Nationwide · broad manufacturing company list (Sept) OR remarketing audiences · excludes customer list</div>
-        <div class="foot-note" style="margin:12px 0 6px; font-weight:600; color:var(--ink);">Job titles</div>
-        <div class="tag-list" id="dg-linkedin-titles"></div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>Top-performing creative</h3>
-      <div class="grid-2-eq">
-        <div>
-          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">LinkedIn — top-of-funnel image hooks</div>
-          <div id="dg-creative-image"></div>
-        </div>
-        <div>
-          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">LinkedIn — top-of-funnel video hooks</div>
-          <div id="dg-creative-video"></div>
-        </div>
-      </div>
-      <div class="foot-note" style="margin:16px 0 8px; font-weight:600; color:var(--ink);">Nurture email example (InMail)</div>
-      <div class="creative-ex">
-        <div class="cx-label">Subject</div>
-        <div class="cx-hook" style="font-weight:700; margin-bottom:8px;">Solving your CA EPR headaches</div>
-        <div class="cx-label">Body</div>
-        <div class="cx-hook" style="margin-bottom:8px;">Opens with the prospect's research fatigue ("attended multiple sessions... still clear as mud"), names the specific pain (95 material categories, component-level tracking, missing supplier data), backs the claim with the Tillamook $100K case study, and closes on a guide download.</div>
-        <div style="display:flex; gap:24px; flex-wrap:wrap;">
-          <div><span class="cx-label">CTA</span><div class="cx-hook">Download</div></div>
-          <div><span class="cx-label">Landing page</span><div class="cx-hook"><a href="https://www.repurpose.global/guides/california-epr-compliance-ebook-access" style="color:var(--turquoise); font-weight:600;">/guides/california-epr-compliance-ebook-access</a></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>Operational notes</h3>
-      <div class="note-list" id="dg-notes"></div>
     </div>
   </section>
 
@@ -748,93 +634,6 @@
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
     renderMiniMonthlyBars('hs-monthly-mql', months, [127, 92, 617, 402, 355, 746, 199], COLOR.orange);
     renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 28], COLOR.turquoise);
-  })();
-
-  // ---------- Demand Gen: Google Ads campaigns ----------
-  (function () {
-    const rows = [
-      ['Prospecting_EPR_Search_USA_Veza', 'EPR ToF/MoF · EPR Software BoF · California (new, June)', '80%', '<strong>Key campaign</strong> — main prospecting, non-branded, nationwide'],
-      ['Brand_Search_USA_Veza', 'Brand', '5%', ''],
-      ['Competitors_Search_USA_Veza', 'Competitors consolidated', '5%', 'Assent · Source Intelligence · RLG · Lorax'],
-      ['Demand_Gen_Veza', 'EPR consolidated', '3%', ''],
-      ['Display_REM_Veza', 'REM website visitors · REM YT views', '6%', ''],
-    ];
-    const tbody = document.querySelector('#dg-google-table tbody');
-    tbody.innerHTML = rows.map(([c, ag, b, comment]) =>
-      `<tr><td>${c}</td><td>${ag}</td><td class="num">${b}</td><td>${comment || '—'}</td></tr>`
-    ).join('');
-  })();
-
-  // ---------- Demand Gen: LinkedIn Ads campaigns ----------
-  (function () {
-    const rows = [
-      ['2_VD | EPR - Extended Producer Responsibility | BW2', 'TL Image · TL Video · Directly sponsored image', '60%'],
-      ['3_VD | EPR - Extended Producer Responsibility | Conversion3', 'REM InMail · REM Directly Sponsored Image', '40%'],
-    ];
-    const tbody = document.querySelector('#dg-linkedin-table tbody');
-    tbody.innerHTML = rows.map(([c, as_, b]) =>
-      `<tr><td>${c}</td><td>${as_}</td><td class="num">${b}</td></tr>`
-    ).join('');
-  })();
-
-  // ---------- Demand Gen: timeline ----------
-  (function () {
-    const items = [
-      ['Jul–Aug 2025', 'Google Ads launches (16 Jul) nationwide. LinkedIn enters a modest test phase — limited spend, small reach, website-conversions objective, native audience targeting, static image ads only. Establishing CPM/CTR baselines on both channels.'],
-      ['Sep–Oct 2025', 'Google adds Colorado + certifications prospecting. LinkedIn transitions to active campaigning: ToF brand-awareness launches with static image/text + video ad formats — strong CTRs but no downstream conversions visible in the LinkedIn UI yet. Targeting mixes an uploaded manufacturing company list with native audiences; remarketing lists start building.'],
-      ['Nov–Dec 2025', 'Google campaign optimization switches to MQLs (Dec). LinkedIn funnel goes operational: message ads for retargeting launch late Oct and scale in November across website visitors, page engagers, and content engagers. HubSpot events import and campaigns start optimizing for MQL/SQL/Customer.'],
-      ['Jan–Mar 2026', 'Google Brand Search and Competitor Search go live and run ongoing. LinkedIn matures and scales budget with higher frequency caps; a mid-quarter "Beauty List" test underperformed (2x CPM, only 2 MQLs) and was discontinued.'],
-      ['Mid Mar–May 2026', 'Google Demand Generation campaign launches, focused on YouTube only. LinkedIn continues scaling ahead of the May 31 deadline; a new lead-gen campaign is tested for Base Camp.'],
-      ['Jun 2026', 'Google: California prospecting relaunches. LinkedIn: new ToF ads, new REM + general directly-sponsored static images, remarketing list and InMail copy refresh.'],
-    ];
-    document.getElementById('dg-timeline').innerHTML = items.map(([period, text]) =>
-      `<div class="timeline-item"><div class="tl-period">${period}</div><div class="tl-text">${text}</div></div>`
-    ).join('');
-  })();
-
-  // ---------- Demand Gen: targeting tags ----------
-  (function () {
-    const segments = ['Business services', 'Small employer', 'Large employer', 'Very large employer', 'Business & productivity software', 'Manufacturing industry', 'Business financial services', 'Executive & management jobs', 'Payroll', 'Accounting & finance jobs'];
-    const exclusions = ['All converters', 'All GA4 users', 'GA4 form submissions', 'Customer list'];
-    const titles = ['Environment, Health & Safety Manager', 'Sustainability Coordinator', 'Environment Specialist', 'Supply Chain Management', 'Supply Manager', 'Senior Regulatory Specialist', 'Regulatory Affairs Specialist', 'Regulatory Affairs Manager', 'Senior Regulatory Affairs Specialist', 'Environmental Manager', 'Environmental Consultant', 'Director of Regulatory Affairs', 'Regulatory Manager', 'Environmental Coordinator', 'Supply Director', 'Health Safety Environment Coordinator', 'Regulatory Specialist', 'Sustainability Manager', 'Regulatory Compliance Manager', 'Chief Executive Officer', 'Supply Specialist', 'Director of Sustainability'];
-    document.getElementById('dg-google-segments').innerHTML = segments.map(s => `<span class="tag">${s}</span>`).join('');
-    document.getElementById('dg-google-exclusions').innerHTML = exclusions.map(s => `<span class="tag">${s}</span>`).join('');
-    document.getElementById('dg-linkedin-titles').innerHTML = titles.map(s => `<span class="tag">${s}</span>`).join('');
-  })();
-
-  // ---------- Demand Gen: creative examples ----------
-  (function () {
-    const images = [
-      "\"Colorado and Oregon are done playing nice as it pertains to EPR… Colorado (like Oregon before it) just went full 'no…'\"",
-      "\"Ok Folks…. Gonna rant on EPR registration in California… which is like a 'choose your own adventure —'\"",
-      "\"Oh hey there. I'm back. What's that you ask? What have we learned after helping hundreds of brands untangle the hot…\"",
-    ];
-    const videos = [
-      "Watch On-Demand Webinar — \"Who Must Comply With California EPR?\"",
-      "\"Three weeks from California's November 15 deadline. And I know you're stressed. Spreadsheets. Supplier emails. Trying…\"",
-      "Talk to a regulatory expert — Tillamook Case Study",
-    ];
-    document.getElementById('dg-creative-image').innerHTML = images.map(t =>
-      `<div class="creative-ex"><div class="cx-label">LinkedIn post</div><div class="cx-hook">${t}</div></div>`
-    ).join('');
-    document.getElementById('dg-creative-video').innerHTML = videos.map(t =>
-      `<div class="creative-ex"><div class="cx-label">LinkedIn video ad</div><div class="cx-hook">${t}</div></div>`
-    ).join('');
-  })();
-
-  // ---------- Demand Gen: operational notes ----------
-  (function () {
-    const notes = [
-      '1–2 months after launch, Google conversion tracking had issues — conversion data pulled directly from the Google UI for that window is skewed.',
-      'Campaigns switched to optimizing for MQLs toward the end of 2025 (Google: Dec 2025; LinkedIn: Nov–Dec 2025 alongside HubSpot event import).',
-      'The conversion/all-conversions spike visible from April 2026 onward is attributable to the Demand Generation campaign, which optimizes for secondary conversions like time-on-page &gt;1 min — not a change in lead quality.',
-      '31 MQLs were backfilled into Google Ads for Aug–Dec 2025, predating the HubSpot MQL event import.',
-      'LinkedIn: an inverse relationship between MQLs and SQLs shows up in certain months — flagged as needing verification inside HubSpot, not yet confirmed as a data issue.',
-      'LinkedIn: Feb–Mar 2026 saw ~2x budget but ~9x MQL events — worth checking whether HubSpot\'s MQL definition changed rather than assuming organic lift.',
-      'LinkedIn message-ad open rates are declining — copy needs refreshing, ideally monthly.',
-      'More top-of-funnel content is needed for LinkedIn.',
-    ];
-    document.getElementById('dg-notes').innerHTML = notes.map(n => `<div class="note-item">${n}</div>`).join('');
   })();
 
   // ---------- PR coverage table ----------
