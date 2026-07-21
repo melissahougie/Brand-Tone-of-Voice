@@ -125,6 +125,7 @@
   table.data th {
     text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .03em;
     color: var(--ink-faint); font-weight: 600; padding: 0 10px 8px; border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; background: var(--surface); padding-top: 4px;
   }
   table.data td { padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   table.data tr:last-child td { border-bottom: none; }
@@ -202,9 +203,9 @@
   </header>
 
   <nav class="jump">
-    <a href="#ga">Website Analytics</a>
-    <a href="#hubspot">Pipeline &amp; Funnel</a>
-    <a href="#pr">Earned Media / PR</a>
+    <a href="#ga">GA4</a>
+    <a href="#hubspot">HubSpot</a>
+    <a href="#pr">PR</a>
   </nav>
 
   <!-- ================= GOOGLE ANALYTICS ================= -->
@@ -235,10 +236,21 @@
       </div>
     </div>
 
+    <div class="card" style="margin-top:16px;">
+      <h3>This month vs. last month</h3>
+      <div class="table-scroll">
+        <table class="data" id="ga-momtable">
+          <thead><tr><th>Metric</th><th class="num">June (30 days)</th><th class="num">July (1–21, partial)</th><th class="num">Daily pace, June</th><th class="num">Daily pace, July</th><th class="num">Pace change</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="foot-note">Active/new users and engagement are computed from daily data, so June and July are directly comparable — "pace" normalizes for July still being a partial month. Sessions, page views, and form submissions aren't broken out by day in this export, so they aren't included here; a monthly-level GA export would add them.</div>
+    </div>
+
     <div class="grid-2" style="margin-top:16px;">
       <div class="card">
-        <h3>Top pages by views</h3>
-        <div class="table-scroll">
+        <h3>Top pages by views <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— top 50</span></h3>
+        <div class="table-scroll" style="max-height:560px; overflow-y:auto;">
           <table class="data" id="ga-pages-table">
             <thead><tr><th>Page / screen</th><th class="num">Views</th></tr></thead>
             <tbody></tbody>
@@ -448,6 +460,26 @@
     ['Supply & Demand Chain Exec.', 19708]
   ], { color: COLOR.turquoise });
 
+  // ---------- GA month-over-month ----------
+  (function () {
+    const rows = [
+      ['New users', 17380, 12391, 579.3, 590.0, '+1.8%'],
+      ['Active users', 21501, 14859, 716.7, 707.6, '−1.3%'],
+      ['Avg. engagement / user', '33.9s', '23.3s', null, null, '−31.2%'],
+    ];
+    const tbody = document.querySelector('#ga-momtable tbody');
+    tbody.innerHTML = rows.map(([metric, jun, jul, junPace, julPace, change]) =>
+      `<tr>
+        <td>${metric}</td>
+        <td class="num">${typeof jun === 'number' ? fmt(jun) : jun}</td>
+        <td class="num">${typeof jul === 'number' ? fmt(jul) : jul}</td>
+        <td class="num">${junPace !== null ? fmt(junPace) + '/day' : '—'}</td>
+        <td class="num">${julPace !== null ? fmt(julPace) + '/day' : '—'}</td>
+        <td class="num">${change}</td>
+      </tr>`
+    ).join('');
+  })();
+
   // ---------- GA top pages table ----------
   (function () {
     const rows = [
@@ -461,6 +493,46 @@
       ['2026 EPR compliance checklist', 6405],
       ['Contact rePurpose Global | Start Your Impact', 5377],
       ['Verified Plastic Recovery Claims | rePurpose Global', 4867],
+      ['Estimate 2026 EPR Fees With rePurpose Calculator Tool', 4839],
+      ['Packaging Regulations Risk Assessment', 4630],
+      ["California's Plastic Source Reduction Mandates", 4447],
+      ['rePurpose Global: World’s Leading Plastic Action Platform', 4447],
+      ['EPR Office Hours: July | rePurpose Global', 3405],
+      ['EPR Compliance: Resource Planning Guide', 3297],
+      ['Webinars', 3226],
+      ['Why Most Plastic Isn’t Recycled & What Can Help', 2892],
+      ['Blog', 2811],
+      ['Base Camp to Summit: Your Route Map to May 31', 2652],
+      ['Live Impact Dashboard | rePurpose Global', 2598],
+      ['What to Expect from 2026 EPR', 2548],
+      ['California EPR Compliance: Your Step-by-Step Guide', 2418],
+      ['U.S. Waste Exporting Explained', 2347],
+      ['unPacked: Source Reduction Bootcamp - SB 54 | rePurpose Global', 2184],
+      ['Major Contributors to Plastic Pollution Explained', 2173],
+      ['unPacked: Merging EPR compliance with premium design, featuring Zenpack | rePurpose Global', 2089],
+      ['unPacked: Real packaging expertise & lessons from the field | rePurpose Global', 2041],
+      ['Tillamook', 1786],
+      ['Case Study', 1781],
+      ['The Recycling Paradox: Why Systems Still Fail', 1773],
+      ['Home - rePurpose Global', 1740],
+      ['California Packaging EPR Reporting Requirements (2026 Guide)', 1666],
+      ['The EPR Supplier Data Collection Playbook', 1588],
+      ['Packaging Resources & Guides | rePurpose Global', 1565],
+      ['Global Impact Standards | rePurpose Global', 1550],
+      ['News', 1522],
+      ['How to Estimate Your 2026 EPR Fees: Introducing rePurpose’s New EPR Fee Calculator', 1490],
+      ['3 Sustainability Case Studies That Drove Results Growth', 1380],
+      ['Top 10 Zero Waste Skincare Brands', 1370],
+      ['2026 EPR Deadlines: Complete Guide to Fees, Reports & Timelines', 1351],
+      ['How Plastic Waste Causes Air Pollution', 1328],
+      ['5-Day Guided Trial to EPR Compliance Platform', 1263],
+      ['100 Millions Pounds of Plastic Recovery | rePurpose Global', 1248],
+      ['Global Recycling Facts & Insights', 1155],
+      ['California Source Reduction 101', 1133],
+      ['6 Eco-Friendly Outdoor Clothing Brands for Adventure', 1010],
+      ['trafficheap.cc', 997],
+      ['California EPR Compliance', 996],
+      ['How Plastic Affects Forests & Wildlife', 931],
     ];
     const tbody = document.querySelector('#ga-pages-table tbody');
     tbody.innerHTML = rows.map(([title, views]) =>
