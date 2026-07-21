@@ -103,6 +103,8 @@
 
   .grid-2 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: start; }
   @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+  .grid-2-eq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  @media (max-width: 600px) { .grid-2-eq { grid-template-columns: 1fr; } }
 
   .card {
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
@@ -267,15 +269,15 @@
     <div class="kpi-row">
       <div class="kpi"><div class="label">Total contacts</div><div class="value">158,666</div><div class="note">all-time database</div></div>
       <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,588</div><div class="note">created since Jan 1</div></div>
-      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,528</div><div class="note">entered MQL stage YTD</div></div>
-      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">4,631</div><div class="note">entered SQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,538</div><div class="note">contacts entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">426</div><div class="note">deals entered Overview stage YTD</div></div>
     </div>
 
     <div class="grid-2">
       <div class="card">
         <h3>Current lifecycle snapshot</h3>
         <div class="funnel" id="hs-funnel"></div>
-        <div class="foot-note">Point-in-time count of contacts currently sitting in each stage (not a YTD flow) — SQL count sits below the 4,631 who entered it YTD because many have since progressed to Closed Won or dropped off.</div>
+        <div class="foot-note">Point-in-time count of contacts currently sitting in each lifecycle stage (not a YTD flow). This is a contact-based cut and isn't directly comparable to the deal-based SQL figure below.</div>
       </div>
       <div class="card">
         <h3>Top-performing inbound forms &amp; emails</h3>
@@ -289,12 +291,17 @@
 
     <div class="card" style="margin-top:16px;">
       <h3>Monthly new MQLs &amp; SQLs</h3>
-      <div class="legend-row">
-        <span class="legend-item"><span class="sw" style="background:#F9680A"></span>New MQLs</span>
-        <span class="legend-item"><span class="sw" style="background:#064F52"></span>New SQLs</span>
+      <div class="grid-2-eq">
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New MQLs <span style="font-weight:400; color:var(--ink-faint);">(contacts)</span></div>
+          <div id="hs-monthly-mql"></div>
+        </div>
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New SQLs <span style="font-weight:400; color:var(--ink-faint);">(deals)</span></div>
+          <div id="hs-monthly-sql"></div>
+        </div>
       </div>
-      <div id="hs-monthly"></div>
-      <div class="foot-note">Contacts by date they entered each lifecycle stage, not date created. July is partial (through the 21st).</div>
+      <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. July is partial (through the 21st).</div>
     </div>
   </section>
 
@@ -489,42 +496,36 @@
     }).join('');
   })();
 
-  // ---------- HubSpot monthly new MQLs & SQLs (grouped bars) ----------
-  (function () {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
-    const mql = [127, 92, 613, 344, 354, 687, 189];
-    const sql = [433, 545, 778, 599, 883, 1033, 208];
-
-    const w = 640, h = 220, padL = 34, padR = 10, padT = 14, padB = 30;
+  // ---------- HubSpot monthly new MQLs & SQLs (two independently-scaled mini charts) ----------
+  function renderMiniMonthlyBars(containerId, months, values, color) {
+    const w = 320, h = 190, padL = 4, padR = 4, padT = 14, padB = 26;
     const plotW = w - padL - padR, plotH = h - padT - padB;
-    const max = Math.max(...mql, ...sql);
+    const max = Math.max(...values);
     const groupW = plotW / months.length;
-    const barW = groupW * 0.32;
-    const gap = groupW * 0.06;
+    const barW = groupW * 0.56;
 
-    let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:100%;" role="img" aria-label="Monthly new MQLs and SQLs">`;
-    // gridlines at 25/50/75/100%
-    [0.25, 0.5, 0.75, 1].forEach(f => {
+    let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:100%;" role="img" aria-label="Monthly figures">`;
+    [0.5, 1].forEach(f => {
       const y = padT + plotH - f * plotH;
       svg += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${w-padR}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1"/>`;
     });
     months.forEach((m, i) => {
       const groupX = padL + i * groupW;
-      const mqlH = (mql[i] / max) * plotH;
-      const sqlH = (sql[i] / max) * plotH;
-      const mqlX = groupX + groupW / 2 - gap / 2 - barW;
-      const sqlX = groupX + groupW / 2 + gap / 2;
-      const mqlY = padT + plotH - mqlH;
-      const sqlY = padT + plotH - sqlH;
-      svg += `<rect x="${mqlX.toFixed(1)}" y="${mqlY.toFixed(1)}" width="${barW.toFixed(1)}" height="${mqlH.toFixed(1)}" rx="3" fill="${COLOR.orange}"/>`;
-      svg += `<rect x="${sqlX.toFixed(1)}" y="${sqlY.toFixed(1)}" width="${barW.toFixed(1)}" height="${sqlH.toFixed(1)}" rx="3" fill="${COLOR.turquoise}"/>`;
-      svg += `<text x="${mqlX + barW/2}" y="${(mqlY-5).toFixed(1)}" font-size="9.5" fill="var(--ink-muted)" text-anchor="middle">${mql[i]}</text>`;
-      svg += `<text x="${sqlX + barW/2}" y="${(sqlY-5).toFixed(1)}" font-size="9.5" fill="var(--ink-muted)" text-anchor="middle">${sql[i]}</text>`;
-      svg += `<text x="${(groupX + groupW/2).toFixed(1)}" y="${h-10}" font-size="11" fill="var(--ink-faint)" text-anchor="middle">${m}</text>`;
+      const barH = (values[i] / max) * plotH;
+      const barX = groupX + groupW / 2 - barW / 2;
+      const barY = padT + plotH - barH;
+      svg += `<rect x="${barX.toFixed(1)}" y="${barY.toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(barH,1).toFixed(1)}" rx="3" fill="${color}"/>`;
+      svg += `<text x="${(barX + barW/2).toFixed(1)}" y="${(barY-5).toFixed(1)}" font-size="10" fill="var(--ink-muted)" text-anchor="middle">${values[i]}</text>`;
+      svg += `<text x="${(groupX + groupW/2).toFixed(1)}" y="${h-8}" font-size="10.5" fill="var(--ink-faint)" text-anchor="middle">${m}</text>`;
     });
     svg += `<line x1="${padL}" y1="${padT+plotH}" x2="${w-padR}" y2="${padT+plotH}" stroke="var(--line)" stroke-width="1"/>`;
     svg += `</svg>`;
-    document.getElementById('hs-monthly').innerHTML = svg;
+    document.getElementById(containerId).innerHTML = svg;
+  }
+  (function () {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
+    renderMiniMonthlyBars('hs-monthly-mql', months, [127, 92, 617, 402, 355, 746, 199], COLOR.orange);
+    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 28], COLOR.turquoise);
   })();
 
   // ---------- PR coverage table ----------
