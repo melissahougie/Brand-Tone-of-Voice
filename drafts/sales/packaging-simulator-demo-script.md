@@ -1,59 +1,44 @@
 ---
 title: "Packaging Simulator — Live Demo Script"
 audience: Prospect on a booked demo call (compliance/ops or sustainability lead)
-status: DRAFT
+status: User-revised — saved verbatim per "don't edit" instruction, no stylistic changes applied
 source_note: >
   Built from the two-page Packaging Simulator one-pager (Copy_of_Packaging_Simulator_OnePager.pdf,
-  uploaded 2026-07-21, extracted via image read — Canva export has no text layer). Every stat,
-  step name, and quote below traces back to that document. Deadline references (ISR Plan
-  August 1, CAA agreement by year-end) pull from already-ingested/verified source content
-  (content/repurpose-global/pages/homepage.md, drafts/blog/packaging-suppliers-on-source-reduction-questions-answered.md)
-  rather than restating the one-pager's own undated "compliance deadlines are approaching" line.
+  uploaded 2026-07-21, extracted via image read — Canva export has no text layer). First draft
+  (2026-07-21) restructured the one-pager's steps into a "before the call / opening / why it
+  matters now / walkthrough / proof point / close" format with deadline references pulled from
+  already-verified source content. This version is the user's own rewrite, pasted back with
+  "don't edit" — saved as-is, no wording, structure, or fact changes applied.
 open_items:
   - >
-    The customer quote on page 2 is attributed only to "Senior Sustainability Analyst,
-    Current EPR Customer" — no name, unlike most testimonials in this brand's content.
-    Kept anonymized as given; don't attach a name without confirming who it actually is.
+    Not fact-checked against this pass: "supplier-backed swap suggestions, powered by AI" is
+    new phrasing not present in the original one-pager (which just says "Get started with swap
+    suggestions with supplier recommendations") or the first draft. Flagging only because it's
+    a new claim about how the suggestions are generated — not edited per instruction, just
+    noting it wasn't independently verified against product reality.
   - >
-    Screen references below (dashboard nav items, the "Remove label from Avant Guard"
-    simulation example) describe what's visible in the one-pager's product screenshot.
-    Swap in whatever live account/SKU the rep actually has pulled up for the real demo.
+    The customer quote from the original one-pager (Senior Sustainability Analyst, Current EPR
+    Customer, on 5-year fee forecasting) isn't used in this version — dropped, not carried over.
 ---
 
-## Before the call
+Packaging Simulator
 
-Have a real SKU from the prospect's own product line ready to run through the simulator if possible — a generic demo account works, but naming their actual product on screen is what makes this land as instant, not hypothetical.
+Steps involved:
+Get list of products used by brands + Get priority order → Select a product for simulations → Screen shows alternate options → Select right options with supplier options & material information → Get information on category of pathways the changes, get fee projects and California SB 54 obligation.
 
-## Opening (30 seconds)
+Demo video flow:
+Status quo:
 
-Most teams are still modeling packaging tradeoffs in spreadsheets. This tool replaces that: one click, and you can see the fee, recyclability, and compliance impact of a packaging change before you commit to it. I'll show you exactly how, using a real example.
+Most brands are still modelling packaging trade-offs in spreadsheets, or paying expensive consultants who can take months to deliver.
 
-## Why it matters now
+The rPG packaging simulator provides one click instant modelling, so you can see the impact of packaging changes in minutes, not months, and move forward with confidence. We'll show you how in this short demo.
 
-California's SB 54 sets hard targets — 100% recyclable or compostable packaging, mandatory PCR content, measurable plastic reduction. Your ISR Plan is due August 1, and the agreement with CAA covering your actual reduction pathway is due by year-end. That's two deadlines, and the packaging decisions behind both are usually still sitting in a spreadsheet somewhere. This is the tool that gets you out of the spreadsheet.
+Step 1: Submit your data. If you're already a compliance customer: We already have your packaging data — nothing to upload here. If not: We'll walk you through one comprehensive data pull to get started.
+Step 2: Enter packaging changes. Add the component swap you're actually considering, or use one of our suggested changes, like material swaps or lightweighting. The tool also surfaces supplier-backed swap suggestions, powered by AI.
+Step 3: Run instant simulation. See EPR fee projections, material footprint, CA recyclability, PCR weight, plastic components — all five update side by side, instantly, for the exact SKU you just changed. No more messy spreadsheets!
+Step 4: Make smarter, faster packaging decisions. Be empowered to forecast packaging fees and sustainability impact before you commit. Feel confident knowing you're audit-proof and board-ready.
 
-## Walkthrough — tie each step to what's on screen
 
-**Step 1: Submit your data.**
-If they're already a compliance customer: "We already have your packaging data — nothing to upload here." If not: "This is the one data pull it takes to get started."
+Ready to make smarter, faster packaging changes?
 
-**Step 2: Enter packaging changes.**
-[Screen: Simulation screen, "Remove label from Avant Guard"] Add the component swap you're actually considering, or use one of our suggested changes — the tool surfaces supplier-backed swap suggestions, not just a blank field waiting for you to know the answer.
-
-**Step 3: Run instant simulation.**
-[Screen: Original Package vs. New Package comparison] This is the moment to slow down. Point at each line: EPR fees, material footprint, CA recyclability, PCR weight, plastic components — all five update side by side, instantly, for the exact SKU you just changed.
-
-**Step 4: Align & submit.**
-Your CSM uses this same view to help you lock in the decision with your team and finalize your CA Source Reduction Plan for CAA submission. This isn't a modeling exercise that dead-ends in a spreadsheet — it's the same data that goes into your filing.
-
-## The proof point to drop in after the walkthrough
-
-"I really like that the rePurpose Packaging Simulator provides more than just EPR; it's a holistic lens. If we could forecast 5 years in packaging fees to align with implementation timelines, I could make a business case with that." That's a current EPR customer, describing the exact gap this closes: not just today's fee, but the multi-year case for the packaging change.
-
-## If they ask "what pathways does it actually cover?"
-
-Five: material switching, lightweighting, PCR content, elimination, reuse/refill. Whichever pathway they're leaning toward, run it live rather than describing it.
-
-## Close
-
-You don't need to decide anything today — the point of this call is to see your own numbers move, not ours. If a swap you're considering looks good on screen, your CSM picks it up from here and carries it through to your CAA submission.
+Talk to our compliance experts
