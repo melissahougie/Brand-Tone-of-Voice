@@ -147,11 +147,6 @@
   table.heatmap td.src { font-weight: 600; color: var(--ink); white-space: normal; min-width: 130px; }
   table.heatmap tr:last-child td { border-bottom: none; }
 
-  .insight-list { display: flex; flex-direction: column; gap: 10px; }
-  .insight-item { font-size: 12.8px; color: var(--ink-muted); padding-left: 14px; position: relative; line-height: 1.5; }
-  .insight-item::before { content: "•"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
-  .insight-item strong { color: var(--ink); }
-
   /* placeholder / not-connected card */
   .placeholder {
     border: 1.5px dashed var(--line); border-radius: 14px; padding: 26px 22px;
@@ -331,11 +326,6 @@
         <table class="heatmap" id="hs-sql-sources"></table>
       </div>
       <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property). Monthly totals: 31 (Jan), 52 (Feb), 68 (Mar), 76 (Apr), 80 (May), 91 (Jun), 29 (Jul — since grown to 32). "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>What's driving the mix</h3>
-      <div class="insight-list" id="hs-source-insights"></div>
     </div>
   </section>
 
@@ -719,19 +709,6 @@
     ];
     renderHeatmapTable('hs-mql-sources', months, mqlRows, COLOR.orange);
     renderHeatmapTable('hs-sql-sources', months, sqlRows, COLOR.turquoise);
-
-    const insights = [
-      '<strong>Offline Sources is the story of this year.</strong> Negligible in Jan/Feb (3–4% of MQLs), it became the single dominant source by June and July (64% and 51%). In raw counts: 74 MQLs in April, 79 in May, then 478 in June — a roughly 6x jump in one month.',
-      '<strong>March looks like a one-time campaign spike, not a trend.</strong> Nearly every channel jumped at once (Direct Traffic hit 197, Other Campaigns hit 103, Email Marketing hit 114), pushing March to 617 MQLs — the highest month of the year.',
-      "<strong>Direct Traffic's dominance faded fast.</strong> Top or near-top channel Jan–Mar (29–32% share), down to 6–9% by June/July. Some of that is just the denominator effect of Offline Sources ballooning, not necessarily fewer direct visits.",
-      '<strong>Email Marketing is the most consistent quality channel</strong> — double digits every month except Jun/Jul, peaking at 118 MQLs (29%) in April before its share got diluted by the Offline surge.',
-      '<strong>Paid Social and AI Referrals are still negligible</strong> for MQLs — neither has broken 3.5% in any month, and AI Referrals has never exceeded 0.6%.',
-      '<strong>List Upload / Outbound dominates SQL sourcing</strong> — the single largest source in 5 of 7 months, peaking at 48.8% in May and 43.4% in April (list uploads, events, and webinar outreach combined).',
-      "<strong>Partner Event punches above its weight.</strong> It isn't even a category on the MQL side, but it consistently drives 7–25% of SQLs, peaking at 25% in February — suggesting partner-driven leads convert to SQL at a notably higher rate.",
-      '<strong>Direct and Warm Inbound both surged in the second half</strong> — combined, they went from ~10% of SQLs in January to over 34% in July, consistent with pipeline maturing toward referral-adjacent inbound rather than net-new paid/organic.',
-      '<strong>SQL data completeness is a real concern.</strong> 105 deals (~17% of all SQLs) have no date entered for this pipeline stage at all and are excluded entirely; on top of that, 3–15% of each month\'s SQLs have no entry source logged — a meaningfully higher "unknown" rate than the MQL side.',
-    ];
-    document.getElementById('hs-source-insights').innerHTML = insights.map(t => `<div class="insight-item">${t}</div>`).join('');
   })();
 
   // ---------- PR coverage table ----------
