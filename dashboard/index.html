@@ -267,8 +267,8 @@
     <div class="kpi-row">
       <div class="kpi"><div class="label">Total contacts</div><div class="value">158,736</div><div class="note">all-time database</div></div>
       <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,658</div><div class="note">created since Jan 1</div></div>
-      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,538</div><div class="note">contacts entered MQL stage YTD</div></div>
-      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">426</div><div class="note">deals entered Overview stage YTD</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,567</div><div class="note">contacts entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">430</div><div class="note">deals entered Overview stage YTD</div></div>
     </div>
 
     <div class="grid-2">
@@ -589,8 +589,8 @@
   // ---------- HubSpot funnel ----------
   (function () {
     const stages = [
-      ['MQL', 2538, COLOR.orange, 'contacts'],
-      ['SQL', 426, COLOR.turquoise, 'deals'],
+      ['MQL', 2567, COLOR.orange, 'contacts'],
+      ['SQL', 430, COLOR.turquoise, 'deals'],
     ];
     const max = Math.max(...stages.map(s => s[1]));
     const el = document.getElementById('hs-funnel');
@@ -632,8 +632,8 @@
   }
   (function () {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
-    renderMiniMonthlyBars('hs-monthly-mql', months, [127, 92, 617, 402, 355, 746, 199], COLOR.orange);
-    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 28], COLOR.turquoise);
+    renderMiniMonthlyBars('hs-monthly-mql', months, [127, 92, 617, 402, 355, 746, 228], COLOR.orange);
+    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 32], COLOR.turquoise);
   })();
 
   // ---------- PR coverage table ----------
