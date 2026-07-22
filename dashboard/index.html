@@ -137,6 +137,21 @@
   :root[data-theme="dark"] .badge.advanced { color: #8fdfe2; }
   :root[data-theme="dark"] .badge.early { color: #ffb27a; }
 
+  table.heatmap { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.heatmap th {
+    text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .03em;
+    color: var(--ink-faint); font-weight: 600; padding: 0 8px 8px; border-bottom: 1px solid var(--line);
+  }
+  table.heatmap th.num, table.heatmap td.num { text-align: center; font-variant-numeric: tabular-nums; }
+  table.heatmap td { padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.heatmap td.src { font-weight: 600; color: var(--ink); white-space: normal; min-width: 130px; }
+  table.heatmap tr:last-child td { border-bottom: none; }
+
+  .insight-list { display: flex; flex-direction: column; gap: 10px; }
+  .insight-item { font-size: 12.8px; color: var(--ink-muted); padding-left: 14px; position: relative; line-height: 1.5; }
+  .insight-item::before { content: "•"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+  .insight-item strong { color: var(--ink); }
+
   /* placeholder / not-connected card */
   .placeholder {
     border: 1.5px dashed var(--line); border-radius: 14px; padding: 26px 22px;
@@ -300,6 +315,27 @@
         </div>
       </div>
       <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. July is partial (through the 21st).</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>MQL sources by month</h3>
+      <div class="table-scroll">
+        <table class="heatmap" id="hs-mql-sources"></table>
+      </div>
+      <div class="foot-note" style="margin-top:10px;">% share of that month's MQLs, per the "All MQL - By Date Entered MQL" HubSpot report. Monthly totals in that report: 127 (Jan), 92 (Feb), 617 (Mar), 402 (Apr), 355 (May), 746 (Jun), 199 (Jul) — July's total has since grown to 228 in the chart above as more contacts came in; the source mix here reflects the earlier pull.</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>SQL sources by month</h3>
+      <div class="table-scroll">
+        <table class="heatmap" id="hs-sql-sources"></table>
+      </div>
+      <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property). Monthly totals: 31 (Jan), 52 (Feb), 68 (Mar), 76 (Apr), 80 (May), 91 (Jun), 29 (Jul — since grown to 32). "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>What's driving the mix</h3>
+      <div class="insight-list" id="hs-source-insights"></div>
     </div>
   </section>
 
@@ -634,6 +670,68 @@
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
     renderMiniMonthlyBars('hs-monthly-mql', months, [127, 92, 617, 402, 355, 746, 228], COLOR.orange);
     renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 32], COLOR.turquoise);
+  })();
+
+  // ---------- HubSpot MQL/SQL source-mix heatmaps ----------
+  function hexToRgb(hex) {
+    const n = parseInt(hex.slice(1), 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  function renderHeatmapTable(tableId, months, rows, hexColor) {
+    const [r, g, b] = hexToRgb(hexColor);
+    const max = Math.max(...rows.flatMap(row => row[1]));
+    const thead = `<thead><tr><th>Source</th>${months.map(m => `<th class="num">${m}</th>`).join('')}</tr></thead>`;
+    const tbody = '<tbody>' + rows.map(([label, vals]) => {
+      const cells = vals.map(v => {
+        const t = max > 0 ? v / max : 0;
+        const alpha = (0.06 + t * 0.82).toFixed(3);
+        const textColor = t > 0.5 ? '#fff' : 'var(--ink)';
+        return `<td class="num" style="background:rgba(${r},${g},${b},${alpha}); color:${textColor};">${v.toFixed(1)}%</td>`;
+      }).join('');
+      return `<tr><td class="src">${label}</td>${cells}</tr>`;
+    }).join('') + '</tbody>';
+    document.getElementById(tableId).innerHTML = thead + tbody;
+  }
+  (function () {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+    const mqlRows = [
+      ['Organic Search', [13.4, 8.7, 10.7, 7.2, 8.7, 4.0, 4.0]],
+      ['Paid Search', [3.1, 18.5, 7.3, 7.7, 5.9, 3.8, 10.6]],
+      ['Email Marketing', [33.9, 17.4, 18.5, 29.4, 25.4, 6.4, 10.6]],
+      ['Organic Social', [2.4, 1.1, 4.1, 1.2, 1.4, 0.4, 1.0]],
+      ['Referrals', [10.2, 8.7, 7.8, 7.2, 5.6, 4.4, 6.5]],
+      ['Other Campaigns', [3.1, 2.2, 16.7, 9.5, 11.8, 10.3, 7.5]],
+      ['Direct Traffic', [29.1, 30.4, 31.9, 19.4, 14.9, 6.2, 8.5]],
+      ['Offline Sources', [3.1, 13.0, 1.5, 18.4, 22.3, 64.1, 51.3]],
+      ['Paid Social', [1.6, 0.0, 1.3, 0.0, 3.4, 0.3, 0.0]],
+      ['AI Referrals', [0.0, 0.0, 0.3, 0.0, 0.6, 0.1, 0.0]],
+    ];
+    const sqlRows = [
+      ['Organic Search', [9.7, 9.6, 2.9, 6.6, 12.5, 7.7, 3.4]],
+      ['Paid Search', [3.2, 1.9, 2.9, 10.5, 8.8, 14.3, 13.8]],
+      ['Paid Social', [12.9, 1.9, 0.0, 1.3, 0.0, 0.0, 0.0]],
+      ['Partner Event', [19.4, 25.0, 7.4, 10.5, 16.3, 19.8, 20.7]],
+      ['Paid Industry Media', [3.2, 5.8, 14.7, 11.8, 5.0, 5.5, 3.4]],
+      ['List Upload / Outbound', [32.3, 25.0, 35.3, 43.4, 48.8, 22.0, 24.1]],
+      ['Direct', [3.2, 15.4, 14.7, 1.3, 2.5, 14.3, 17.2]],
+      ['Warm Inbound', [6.5, 5.8, 7.4, 10.5, 5.0, 15.4, 17.2]],
+      ['(No value)', [9.7, 9.6, 14.7, 3.9, 1.3, 1.1, 0.0]],
+    ];
+    renderHeatmapTable('hs-mql-sources', months, mqlRows, COLOR.orange);
+    renderHeatmapTable('hs-sql-sources', months, sqlRows, COLOR.turquoise);
+
+    const insights = [
+      '<strong>Offline Sources is the story of this year.</strong> Negligible in Jan/Feb (3–4% of MQLs), it became the single dominant source by June and July (64% and 51%). In raw counts: 74 MQLs in April, 79 in May, then 478 in June — a roughly 6x jump in one month.',
+      '<strong>March looks like a one-time campaign spike, not a trend.</strong> Nearly every channel jumped at once (Direct Traffic hit 197, Other Campaigns hit 103, Email Marketing hit 114), pushing March to 617 MQLs — the highest month of the year.',
+      "<strong>Direct Traffic's dominance faded fast.</strong> Top or near-top channel Jan–Mar (29–32% share), down to 6–9% by June/July. Some of that is just the denominator effect of Offline Sources ballooning, not necessarily fewer direct visits.",
+      '<strong>Email Marketing is the most consistent quality channel</strong> — double digits every month except Jun/Jul, peaking at 118 MQLs (29%) in April before its share got diluted by the Offline surge.',
+      '<strong>Paid Social and AI Referrals are still negligible</strong> for MQLs — neither has broken 3.5% in any month, and AI Referrals has never exceeded 0.6%.',
+      '<strong>List Upload / Outbound dominates SQL sourcing</strong> — the single largest source in 5 of 7 months, peaking at 48.8% in May and 43.4% in April (list uploads, events, and webinar outreach combined).',
+      "<strong>Partner Event punches above its weight.</strong> It isn't even a category on the MQL side, but it consistently drives 7–25% of SQLs, peaking at 25% in February — suggesting partner-driven leads convert to SQL at a notably higher rate.",
+      '<strong>Direct and Warm Inbound both surged in the second half</strong> — combined, they went from ~10% of SQLs in January to over 34% in July, consistent with pipeline maturing toward referral-adjacent inbound rather than net-new paid/organic.',
+      '<strong>SQL data completeness is a real concern.</strong> 105 deals (~17% of all SQLs) have no date entered for this pipeline stage at all and are excluded entirely; on top of that, 3–15% of each month\'s SQLs have no entry source logged — a meaningfully higher "unknown" rate than the MQL side.',
+    ];
+    document.getElementById('hs-source-insights').innerHTML = insights.map(t => `<div class="insight-item">${t}</div>`).join('');
   })();
 
   // ---------- PR coverage table ----------
