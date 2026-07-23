@@ -97,6 +97,8 @@
   @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
   .grid-2-eq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   @media (max-width: 600px) { .grid-2-eq { grid-template-columns: 1fr; } }
+  .grid-3-eq { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 860px) { .grid-3-eq { grid-template-columns: 1fr; } }
 
   .card {
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
@@ -295,14 +297,44 @@
     </div>
 
     <div class="card" style="margin-top:16px;">
-      <h3>This month vs. last month</h3>
-      <div class="table-scroll">
+      <h3>Monthly trend — Jan through Jul</h3>
+      <div class="grid-3-eq">
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New users</div>
+          <div id="ga-monthly-new"></div>
+        </div>
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">Active users</div>
+          <div id="ga-monthly-active"></div>
+        </div>
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">Avg. engagement</div>
+          <div id="ga-monthly-engagement"></div>
+        </div>
+      </div>
+      <div class="table-scroll" style="margin-top:14px;">
         <table class="data" id="ga-momtable">
-          <thead><tr><th>Metric</th><th class="num">June (30 days)</th><th class="num">July (1–21, partial)</th><th class="num">Daily pace, June</th><th class="num">Daily pace, July</th><th class="num">Pace change</th></tr></thead>
+          <thead><tr><th>Month</th><th class="num">Days</th><th class="num">New users</th><th class="num">Active users</th><th class="num">Avg. engagement</th><th class="num">New/day</th><th class="num">Active/day</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
-      <div class="foot-note">Active/new users and engagement are computed from daily data, so June and July are directly comparable — "pace" normalizes for July still being a partial month. Sessions, page views, and form submissions aren't broken out by day in this export, so they aren't included here; a monthly-level GA export would add them.</div>
+      <div class="foot-note" style="margin-top:10px;">New/Active users from daily GA4 data — Active users is apportioned from GA4's own weekly (already-deduplicated) buckets by day-overlap, not summed from daily new+returning (which would double-count returning visitors). Engagement is a day-weighted average of weekly figures. Jul is partial (through the 21st) — "/day" columns make it comparable to full months.</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Website conversion</h3>
+      <div class="kpi-row" style="margin-bottom:0;">
+        <div class="kpi"><div class="label">Form fill rate</div><div class="value">2.00%</div><div class="note">3,417 submissions / 170,699 sessions</div></div>
+        <div class="kpi"><div class="label">Form start rate</div><div class="value">3.27%</div><div class="note">5,578 starts / 170,699 sessions</div></div>
+        <div class="kpi"><div class="label">Start→submit completion</div><div class="value">61.3%</div><div class="note">3,417 of 5,578 starts</div></div>
+        <div class="kpi"><div class="label">File download rate</div><div class="value">0.42%</div><div class="note">725 downloads / 170,699 sessions</div></div>
+        <div class="kpi"><div class="label">EPR ebook download rate</div><div class="value">0.07%</div><div class="note">116 downloads / 170,699 sessions</div></div>
+      </div>
+      <div class="placeholder" style="margin-top:16px;">
+        <div class="icon">📈</div>
+        <h4>Trend not available yet</h4>
+        <p>These are YTD totals — this export has day-level detail for users but not for conversion events (form starts/submissions, file downloads), so a month-by-month conversion-rate trend can't be built from it. To add one: pull a GA4 Explore report with <strong>Month</strong> as the dimension and <strong>Sessions</strong>, <strong>form_submission</strong>, <strong>form_start</strong>, and <strong>file_download</strong> event counts as metrics, and share the export.</p>
+      </div>
     </div>
 
     <div class="grid-2" style="margin-top:16px;">
@@ -472,22 +504,28 @@
     ['Supply & Demand Chain Exec.', 19708]
   ], { color: COLOR.turquoise });
 
-  // ---------- GA month-over-month ----------
+  // ---------- GA monthly trend (Jan-Jul) ----------
   (function () {
-    const rows = [
-      ['New users', 17380, 12391, 579.3, 590.0, '+1.8%'],
-      ['Active users', 21501, 14859, 716.7, 707.6, '−1.3%'],
-      ['Avg. engagement / user', '33.9s', '23.3s', null, null, '−31.2%'],
-    ];
+    const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
+    const days =   [31, 28, 31, 30, 31, 30, 21];
+    const newU =   [19403, 21747, 19107, 16397, 13191, 17380, 12391];
+    const active = [17715, 21959, 22427, 18265, 15404, 17852, 14873];
+    const eng =    [33.1, 35.1, 35.4, 34.2, 42.9, 33.9, 23.3];
+
+    renderMiniMonthlyBars('ga-monthly-new', monthLabels, newU, COLOR.orange);
+    renderMiniMonthlyBars('ga-monthly-active', monthLabels, active, COLOR.turquoise);
+    renderMiniMonthlyBars('ga-monthly-engagement', monthLabels, eng, COLOR.orange, v => v.toFixed(1) + 's');
+
     const tbody = document.querySelector('#ga-momtable tbody');
-    tbody.innerHTML = rows.map(([metric, jun, jul, junPace, julPace, change]) =>
+    tbody.innerHTML = monthLabels.map((m, i) =>
       `<tr>
-        <td>${metric}</td>
-        <td class="num">${typeof jun === 'number' ? fmt(jun) : jun}</td>
-        <td class="num">${typeof jul === 'number' ? fmt(jul) : jul}</td>
-        <td class="num">${junPace !== null ? fmt(junPace) + '/day' : '—'}</td>
-        <td class="num">${julPace !== null ? fmt(julPace) + '/day' : '—'}</td>
-        <td class="num">${change}</td>
+        <td>${m}</td>
+        <td class="num">${days[i]}</td>
+        <td class="num">${fmt(newU[i])}</td>
+        <td class="num">${fmt(active[i])}</td>
+        <td class="num">${eng[i].toFixed(1)}s</td>
+        <td class="num">${(newU[i]/days[i]).toFixed(1)}</td>
+        <td class="num">${(active[i]/days[i]).toFixed(1)}</td>
       </tr>`
     ).join('');
   })();
@@ -631,7 +669,8 @@
   })();
 
   // ---------- HubSpot monthly new MQLs & SQLs (two independently-scaled mini charts) ----------
-  function renderMiniMonthlyBars(containerId, months, values, color) {
+  function renderMiniMonthlyBars(containerId, months, values, color, labelFn) {
+    labelFn = labelFn || (v => fmt(v));
     const w = 320, h = 190, padL = 4, padR = 4, padT = 14, padB = 26;
     const plotW = w - padL - padR, plotH = h - padT - padB;
     const max = Math.max(...values);
@@ -649,7 +688,7 @@
       const barX = groupX + groupW / 2 - barW / 2;
       const barY = padT + plotH - barH;
       svg += `<rect x="${barX.toFixed(1)}" y="${barY.toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(barH,1).toFixed(1)}" rx="3" fill="${color}"/>`;
-      svg += `<text x="${(barX + barW/2).toFixed(1)}" y="${(barY-5).toFixed(1)}" font-size="10" fill="var(--ink-muted)" text-anchor="middle">${values[i]}</text>`;
+      svg += `<text x="${(barX + barW/2).toFixed(1)}" y="${(barY-5).toFixed(1)}" font-size="10" fill="var(--ink-muted)" text-anchor="middle">${labelFn(values[i])}</text>`;
       svg += `<text x="${(groupX + groupW/2).toFixed(1)}" y="${h-8}" font-size="10.5" fill="var(--ink-faint)" text-anchor="middle">${m}</text>`;
     });
     svg += `<line x1="${padL}" y1="${padT+plotH}" x2="${w-padR}" y2="${padT+plotH}" stroke="var(--line)" stroke-width="1"/>`;
