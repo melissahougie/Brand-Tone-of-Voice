@@ -28,5 +28,5 @@ A few things we saw:
 
 None of it was negligence. It's what happens when a brand-new, multi-state system launches and everyone's building the muscle at the same time.
 
-Here's what we'd tell you to fix before the next cycle 👇
+Here's where brands are losing the most money on fees without knowing it 👇
 [link to blog post]
