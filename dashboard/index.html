@@ -204,6 +204,68 @@
     </div>
   </header>
 
+  <!-- ================= HUBSPOT ================= -->
+  <section class="block" id="hubspot">
+    <div class="block-head">
+      <h2>Pipeline &amp; Funnel — HubSpot</h2>
+      <div class="sub">Source: HubSpot CRM, live query · Portal 6173040 · YTD = Jan 1–Jul 21, 2026</div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Total contacts</div><div class="value">158,736</div><div class="note">all-time database</div></div>
+      <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,658</div><div class="note">created since Jan 1</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,567</div><div class="note">contacts entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">430</div><div class="note">deals entered Overview stage YTD</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>MQLs &amp; SQLs — YTD</h3>
+        <div class="funnel" id="hs-funnel"></div>
+        <div class="foot-note">Matches the monthly view: MQL = contacts entered MQL lifecycle stage YTD; SQL = deals entered "Overview" (Sales Pipeline) stage YTD. Different units (contacts vs. deals) — shown together for a quick read, not a 1:1 conversion rate.</div>
+      </div>
+      <div class="card">
+        <h3>Top-performing inbound forms &amp; emails</h3>
+        <div class="placeholder">
+          <div class="icon">🔒</div>
+          <h4>Needs additional HubSpot scopes</h4>
+          <p>The connected HubSpot app can query CRM records but isn't authorized for content/form analytics (<code>cms-analytics-api-access</code>) or marketing email metrics. Reauthorize the HubSpot connector with those permissions to light this section up.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Monthly new MQLs &amp; SQLs</h3>
+      <div class="grid-2-eq">
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New MQLs <span style="font-weight:400; color:var(--ink-faint);">(contacts)</span></div>
+          <div id="hs-monthly-mql"></div>
+        </div>
+        <div>
+          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New SQLs <span style="font-weight:400; color:var(--ink-faint);">(deals)</span></div>
+          <div id="hs-monthly-sql"></div>
+        </div>
+      </div>
+      <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. July is partial (through the 21st).</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>MQL sources by month</h3>
+      <div class="table-scroll">
+        <table class="heatmap" id="hs-mql-sources"></table>
+      </div>
+      <div class="foot-note" style="margin-top:10px;">% share of that month's MQLs, per the "All MQL - By Date Entered MQL" HubSpot report. Monthly totals in that report: 127 (Jan), 92 (Feb), 617 (Mar), 402 (Apr), 355 (May), 746 (Jun), 199 (Jul) — July's total has since grown to 228 in the chart above as more contacts came in; the source mix here reflects the earlier pull.</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>SQL sources by month</h3>
+      <div class="table-scroll">
+        <table class="heatmap" id="hs-sql-sources"></table>
+      </div>
+      <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property). Monthly totals: 31 (Jan), 52 (Feb), 68 (Mar), 76 (Apr), 80 (May), 91 (Jun), 29 (Jul — since grown to 32). "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
+    </div>
+  </section>
+
   <!-- ================= GOOGLE ANALYTICS ================= -->
   <section class="block" id="ga">
     <div class="block-head">
@@ -264,68 +326,6 @@
           <div id="ga-age" class="barchart"></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= HUBSPOT ================= -->
-  <section class="block" id="hubspot">
-    <div class="block-head">
-      <h2>Pipeline &amp; Funnel — HubSpot</h2>
-      <div class="sub">Source: HubSpot CRM, live query · Portal 6173040 · YTD = Jan 1–Jul 21, 2026</div>
-    </div>
-
-    <div class="kpi-row">
-      <div class="kpi"><div class="label">Total contacts</div><div class="value">158,736</div><div class="note">all-time database</div></div>
-      <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,658</div><div class="note">created since Jan 1</div></div>
-      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,567</div><div class="note">contacts entered MQL stage YTD</div></div>
-      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">430</div><div class="note">deals entered Overview stage YTD</div></div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>MQLs &amp; SQLs — YTD</h3>
-        <div class="funnel" id="hs-funnel"></div>
-        <div class="foot-note">Matches the monthly view: MQL = contacts entered MQL lifecycle stage YTD; SQL = deals entered "Overview" (Sales Pipeline) stage YTD. Different units (contacts vs. deals) — shown together for a quick read, not a 1:1 conversion rate.</div>
-      </div>
-      <div class="card">
-        <h3>Top-performing inbound forms &amp; emails</h3>
-        <div class="placeholder">
-          <div class="icon">🔒</div>
-          <h4>Needs additional HubSpot scopes</h4>
-          <p>The connected HubSpot app can query CRM records but isn't authorized for content/form analytics (<code>cms-analytics-api-access</code>) or marketing email metrics. Reauthorize the HubSpot connector with those permissions to light this section up.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>Monthly new MQLs &amp; SQLs</h3>
-      <div class="grid-2-eq">
-        <div>
-          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New MQLs <span style="font-weight:400; color:var(--ink-faint);">(contacts)</span></div>
-          <div id="hs-monthly-mql"></div>
-        </div>
-        <div>
-          <div class="foot-note" style="margin:0 0 8px; font-weight:600; color:var(--ink);">New SQLs <span style="font-weight:400; color:var(--ink-faint);">(deals)</span></div>
-          <div id="hs-monthly-sql"></div>
-        </div>
-      </div>
-      <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. July is partial (through the 21st).</div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>MQL sources by month</h3>
-      <div class="table-scroll">
-        <table class="heatmap" id="hs-mql-sources"></table>
-      </div>
-      <div class="foot-note" style="margin-top:10px;">% share of that month's MQLs, per the "All MQL - By Date Entered MQL" HubSpot report. Monthly totals in that report: 127 (Jan), 92 (Feb), 617 (Mar), 402 (Apr), 355 (May), 746 (Jun), 199 (Jul) — July's total has since grown to 228 in the chart above as more contacts came in; the source mix here reflects the earlier pull.</div>
-    </div>
-
-    <div class="card" style="margin-top:16px;">
-      <h3>SQL sources by month</h3>
-      <div class="table-scroll">
-        <table class="heatmap" id="hs-sql-sources"></table>
-      </div>
-      <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property). Monthly totals: 31 (Jan), 52 (Feb), 68 (Mar), 76 (Apr), 80 (May), 91 (Jun), 29 (Jul — since grown to 32). "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
     </div>
   </section>
 
