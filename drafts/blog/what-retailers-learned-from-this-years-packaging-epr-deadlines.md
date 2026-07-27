@@ -58,7 +58,7 @@ Several teams that managed EPR entirely in-house this cycle described the proces
 
 None of this reflects carelessness. It's the predictable result of a brand-new, multi-jurisdiction system where everyone is building institutional knowledge at the same time, often leaning on AI tools for categorization with no way to verify the output. The quiet mistakes were the dangerous ones, precisely because nothing threw an error or looked obviously wrong.
 
-## Before your next reporting cycle
+## Where this leaves retail and merchandising teams
 
 Packaging EPR touches sourcing, sustainability, finance, and compliance, functions that don't always sit at the same table. The businesses handling it best this cycle are the ones that gave it a single, accountable owner well before a deadline forced the issue. Regardless of how this cycle went, a few things are worth putting on next quarter's agenda:
 
