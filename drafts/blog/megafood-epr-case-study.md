@@ -68,8 +68,8 @@ MegaFood's experience holds a few lessons for any brand still splitting packagin
 
 **An existing relationship is a legitimate shortcut, not a shortcut around diligence.** MegaFood didn't have to vet a stranger. Choosing a partner already trusted with plastic neutral certification meant the EPR decision came with a track record attached.
 
-**Deadline anxiety about a data migration is worth naming, then worth checking against how the migration actually goes.** MegaFood's biggest concern going in was whether the transition would finish in time for May. It did, and that's worth revisiting once the work wraps, the same way it mattered before the work started.
+**A timing concern deserves a timing answer.** MegaFood's biggest worry going in wasn't whether rePurpose could do the work, it was whether the data transition would finish before the May deadline. That's a fair question to put to any partner up front, and a specific one: not "can you handle this" but "will this be done by the date I actually need it."
 
-**Consolidation keeps paying out on every cycle after the first.** The work of moving from three channels to one is a one-time cost. The time saved from checking one platform instead of three repeats every reporting season that follows.
+**Consolidation keeps paying off after the first cycle.** Moving from three channels to one is a one-time cost. The time saved from checking one platform instead of three repeats every reporting season that follows.
 
 Reporting packaging data through more channels than you'd like? [Learn more about rePurpose's EPR solutions](https://www.repurpose.global/packaging-compliance) or [talk to a Compliance Specialist](https://www.repurpose.global/contact-us). No cost. No obligation.
