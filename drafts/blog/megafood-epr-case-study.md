@@ -11,11 +11,15 @@ source_note: >
   metrics, and quotes there match this transcript). Unlike the skincare
   brand post, MegaFood is not anonymized: the customer is named
   throughout, consistent with the existing one-pager's "— Kripa, MegaFood"
-  attribution. No title is given for Kripa in the transcript, so none is
-  invented here. The transcript's ROI answer ("I anticipate that we will
-  be able to save time... as we continue to report") is forward-looking,
-  not a completed result — this draft is careful to keep that framing
-  rather than overstating it as an already-realized saving.
+  attribution. Kripa's title, Sustainability Implementation Manager, was
+  not in the original transcript; it was supplied by the user in a later
+  turn and added on first reference here. The transcript's ROI answer
+  ("I anticipate that we will be able to save time... as we continue to
+  report") is forward-looking, not a completed result — this draft is
+  careful to keep that framing rather than overstating it as an
+  already-realized saving. No dollar figure, hours-saved number, or SKU
+  count exists in the source material; none is invented here. If one
+  becomes available, the Impact section is the place to add it.
 ---
 
 Consolidating vendors is rarely the headline result a brand expects from an EPR compliance project. Usually the goal is narrower: get the filing done, on time, in every state that requires it. But for one whole food vitamin and supplement brand, fixing EPR reporting turned into fixing something that had been broken for longer than the regulation itself.
@@ -24,7 +28,7 @@ MegaFood had been reporting packaging data through three separate channels, each
 
 ## The Challenge: Three Channels, One Deadline
 
-"We were previously reporting packaging data through 3 separate channels and reporting slightly different information," said Kripa at MegaFood. Three channels meant three separate versions of the same packaging data, with no single source anyone could point to with confidence.
+"We were previously reporting packaging data through 3 separate channels and reporting slightly different information," said Kripa, Sustainability Implementation Manager at MegaFood. Three channels meant three separate versions of the same packaging data, with no single source anyone could point to with confidence.
 
 Leaving that fragmentation in place had a real cost even before EPR entered the picture. "There was a time resource cost to leaving it unsolved," Kripa said. Consolidating and simplifying packaging data reporting, and getting more functionality out of the platform, mattered to MegaFood as much as the EPR filing itself.
 
@@ -44,7 +48,7 @@ One question sat ahead of everything else for MegaFood: would there be enough ru
 
 The transition MegaFood was worried about turned out to be the easiest part of the engagement.
 
-"Quite seamlessly. Sarah and Faith were incredibly responsive, helpful and knowledgeable," Kripa said. The deadline concern that shaped MegaFood's decision going in didn't materialize into a deadline problem once the work started.
+"Implementation was quite seamless. Sarah and Faith were incredibly responsive, helpful and knowledgeable," Kripa said. The deadline concern that shaped MegaFood's decision going in didn't materialize into a deadline problem once the work started.
 
 ## The Difference: From Multiple Parties to One Platform
 
@@ -56,9 +60,13 @@ The contrast, in her words: "The rePurpose experience has been very streamlined 
 
 ## The Impact: Time Saved Going Forward
 
-Some results show up immediately. Others compound over each reporting cycle, and MegaFood's is the second kind. "I anticipate that we will be able to save time with the rePurpose platform as we continue to report," Kripa said. The near-term win was consolidation itself, three channels down to one, on time for May. The ongoing win is what happens every cycle after: one platform to check instead of three, one source of data instead of three versions of it.
+Some results show up immediately. Others compound over each reporting cycle, and MegaFood's is the second kind. The near-term win was consolidation itself: three channels down to one, on time for May. "I anticipate that we will be able to save time with the rePurpose platform as we continue to report," Kripa said. The ongoing win is what happens every cycle after: one platform to check instead of three, one source of data instead of three versions of it.
+
+## Where MegaFood Stands Now
 
 Asked for an overall take on the partnership, Kripa was direct: "Working with rePurpose has been a rewarding experience. The level of customer service has been unparalleled with speedy and comprehensive responses to our questions, and a willingness to walk us through each step of the process to ensure accuracy of reporting. The support team is very knowledgeable and willing to go the extra mile to help answer our questions."
+
+That's a different claim than "the transition went smoothly" or "the old process was confusing." It's a verdict on the relationship as a whole, from someone who'd already lived through the fragmented alternative and had something concrete to measure it against.
 
 ## Key Takeaways for Multi-Channel Reporters
 
