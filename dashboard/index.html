@@ -210,14 +210,14 @@
   <section class="block" id="hubspot">
     <div class="block-head">
       <h2>Pipeline &amp; Funnel — HubSpot</h2>
-      <div class="sub">Source: HubSpot CRM, live query · Portal 6173040 · YTD = Jan 1–Jul 21, 2026</div>
+      <div class="sub">Source: HubSpot CRM, live query · Portal 6173040 · YTD 2026 (contacts as of Jul 22; MQL/SQL monthly through Aug)</div>
     </div>
 
     <div class="kpi-row">
       <div class="kpi"><div class="label">Total contacts</div><div class="value">158,736</div><div class="note">all-time database</div></div>
       <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,658</div><div class="note">created since Jan 1</div></div>
-      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,567</div><div class="note">contacts entered MQL stage YTD</div></div>
-      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">430</div><div class="note">deals entered Overview stage YTD</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,908</div><div class="note">contacts entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">472</div><div class="note">deals entered Overview stage YTD</div></div>
     </div>
 
     <div class="grid-2">
@@ -248,7 +248,7 @@
           <div id="hs-monthly-sql"></div>
         </div>
       </div>
-      <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. July is partial (through the 21st).</div>
+      <div class="foot-note" style="margin-top:14px;">Matches the ARR Dashboard 2026: MQLs = contacts by date entered "MQL" lifecycle stage; SQLs = deals by date entered "Overview" (Sales Pipeline) stage. Separate scales — these are different units, not directly comparable. August is partial.</div>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -256,7 +256,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-mql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">% share of that month's MQLs, per the "All MQL - By Date Entered MQL" HubSpot report. Monthly totals in that report: 127 (Jan), 92 (Feb), 617 (Mar), 402 (Apr), 355 (May), 746 (Jun), 199 (Jul) — July's total has since grown to 228 in the chart above as more contacts came in; the source mix here reflects the earlier pull.</div>
+      <div class="foot-note" style="margin-top:10px;">% share of that month's MQLs, per the "All MQL - By Date Entered MQL" HubSpot report, pulled Jul 2026 (7-month view: Jan-Jul). The monthly chart above now runs through August with updated totals (Jul is complete at 395, Aug is partial at 176) — this source-mix breakdown hasn't been repulled to match, so treat the percentages here as a snapshot from that earlier date rather than a live mirror of the chart above.</div>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -264,7 +264,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-sql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property). Monthly totals: 31 (Jan), 52 (Feb), 68 (Mar), 76 (Apr), 80 (May), 91 (Jun), 29 (Jul — since grown to 32). "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
+      <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property), pulled Jul 2026 (7-month view: Jan-Jul). The monthly chart above now runs through August with updated totals (Jul is complete at 56, Aug is partial at 18) — this source-mix breakdown hasn't been repulled to match. "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
     </div>
   </section>
 
@@ -653,8 +653,8 @@
   // ---------- HubSpot funnel ----------
   (function () {
     const stages = [
-      ['MQL', 2567, COLOR.orange, 'contacts'],
-      ['SQL', 430, COLOR.turquoise, 'deals'],
+      ['MQL', 2908, COLOR.orange, 'contacts'],
+      ['SQL', 472, COLOR.turquoise, 'deals'],
     ];
     const max = Math.max(...stages.map(s => s[1]));
     const el = document.getElementById('hs-funnel');
@@ -696,9 +696,9 @@
     document.getElementById(containerId).innerHTML = svg;
   }
   (function () {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul*'];
-    renderMiniMonthlyBars('hs-monthly-mql', months, [127, 92, 617, 402, 355, 746, 228], COLOR.orange);
-    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 32], COLOR.turquoise);
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug*'];
+    renderMiniMonthlyBars('hs-monthly-mql', months, [126, 92, 617, 402, 355, 745, 395, 176], COLOR.orange);
+    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 56, 18], COLOR.turquoise);
   })();
 
   // ---------- HubSpot MQL/SQL source-mix heatmaps ----------
