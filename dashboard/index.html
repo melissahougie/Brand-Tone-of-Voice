@@ -284,6 +284,28 @@
       <div class="kpi"><div class="label">Form submissions</div><div class="value">3,417</div><div class="note">key conversion event</div></div>
     </div>
 
+    <div class="card" style="margin-top:0; margin-bottom:16px;">
+      <h3>Latest GA4 snapshot <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— as of Aug 12, 2026</span></h3>
+      <div class="kpi-row" style="margin-bottom:0;">
+        <div class="kpi"><div class="label">Active users</div><div class="value">~130K</div><div class="note">↑ 18.3% vs. previous period</div></div>
+        <div class="kpi"><div class="label">Views</div><div class="value">~259K</div><div class="note">↑ 29.2% vs. previous period</div></div>
+        <div class="kpi"><div class="label">Event count</div><div class="value">~1M</div><div class="note">↑ 14.2% vs. previous period</div></div>
+        <div class="kpi"><div class="label">Key events</div><div class="value">~196K</div><div class="note">↑ 66.0% vs. previous period</div></div>
+      </div>
+      <div class="foot-note" style="margin-top:12px;">This year (Jan 1–today) vs. the previous equivalent period, rounded — read directly off the GA4 overview card, not independently verifiable at that precision. The KPI tiles above use exact figures from the Jul 21 export and haven't been reconciled to this newer pull; the 66% jump in key events is the standout signal worth digging into.</div>
+    </div>
+
+    <div class="card" style="margin-top:0; margin-bottom:16px;">
+      <h3>Top pages <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— last 28 days (Jul 15–Aug 11, 2026)</span></h3>
+      <div class="table-scroll" style="max-height:480px; overflow-y:auto;">
+        <table class="data" id="ga-pages-recent-table">
+          <thead><tr><th>Page / screen</th><th class="num">Views</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="foot-note" style="margin-top:10px;">Top 50 of 553 distinct pages/screens in this window · 25,937 total views. Separate export/window from the "top 100" all-time table below — don't sum the two.</div>
+    </div>
+
     <div class="grid-2">
       <div class="card">
         <h3>Weekly active users — 30 weeks</h3>
@@ -635,6 +657,66 @@
       ['Customer Webinar: ISR 101 - What It Is & Where to Start | rePurpose Global', 308],
     ];
     const tbody = document.querySelector('#ga-pages-table tbody');
+    tbody.innerHTML = rows.map(([title, views]) =>
+      `<tr><td>${title}</td><td class="num">${fmt(views)}</td></tr>`
+    ).join('');
+  })();
+
+  // ---------- GA top pages, last 28 days ----------
+  (function () {
+    const rows = [
+      ["Plastic Recovery Claims and Packaging Compliance Platform", 4955],
+      ["unPacked: Filed Isn't Finished: What's Next for EPR in Q3 | rePurpose Global", 3347],
+      ["Contact rePurpose Global | Start Your Impact", 1514],
+      ["About rePurpose Global | Plastic Action Leaders", 1302],
+      ["Packaging Compliance Made Simple | rePurpose Global", 942],
+      ["Guides", 832],
+      ["unPacked: Merging EPR compliance with premium design, featuring Zenpack | rePurpose Global", 539],
+      ["Packaging Simulator Solution", 416],
+      ["Webinars", 413],
+      ["California Source Reduction 101", 387],
+      ["August EPR Office Hours | rePurpose Global", 379],
+      ["Blog", 342],
+      ["Not Found", 313],
+      ["Why Most Plastic Isn’t Recycled & What Can Help", 311],
+      ["Live Impact Dashboard | rePurpose Global", 290],
+      ["Verified Plastic Recovery Claims | rePurpose Global", 269],
+      ["News", 267],
+      ["rePurpose Air: Source Reduction Guide", 222],
+      ["2026 EPR compliance checklist", 217],
+      ["Case Study", 207],
+      ["Packaging Resources & Guides | rePurpose Global", 206],
+      ["Source Reduction Plan Request Form", 206],
+      ["California's Plastic Source Reduction Mandates", 199],
+      ["6 Eco-Friendly Outdoor Clothing Brands for Adventure", 196],
+      ["2026 PCR Laws Guide: Essential State Rules for Brands", 188],
+      ["2026 EPR Deadlines: Fees, Reports & Timelines Guide", 186],
+      ["Packaging Simulator User Guide", 173],
+      ["California Packaging EPR Reporting Requirements (2026 Guide)", 159],
+      ["Base Camp to Summit: Your Route Map to May 31", 156],
+      ["Major Contributors to Plastic Pollution Explained", 139],
+      ["Compliance Knowledge Hub", 137],
+      ["(not set)", 134],
+      ["Become a Partner with rePurpose", 124],
+      ["Global Impact Standards | rePurpose Global", 124],
+      ["Tillamook", 118],
+      ["Terms of Service", 112],
+      ["U.S. Waste Exporting Explained", 112],
+      ["SB 54 Source Reduction: Your ISR Planning Questions, Answered", 110],
+      ["Customer Webinar: Packaging Optimization Beyond Source Reduction | rePurpose Global", 107],
+      ["Master EPR: Expert Guide to State Deadline Success", 102],
+      ["California EPR Compliance: Your Step-by-Step Guide", 100],
+      ["The 7 Types of Plastic Explained", 98],
+      ["rePurpose Founders Join Forbes 30 Under 30 List", 98],
+      ["Solving the Global Plastic Waste Crisis Today", 85],
+      ["5 Lessons From EPR Reporting Season 2026 (And Where Brands Lose the Most Money Without Knowing It)", 83],
+      ["The EPR Supplier Data Collection Playbook", 83],
+      ["US EPR Fee-Setting & Eco-Modulation: 2026 Guide", 83],
+      ["unPacked: Source Reduction Bootcamp - SB 54 | rePurpose Global", 82],
+      ["rePurpose Global launches Packaging Simulator for brands seeking source reduction", 80],
+      ["What Is the Circular Action Alliance?", 77],
+    ];
+    const tbody = document.querySelector('#ga-pages-recent-table tbody');
     tbody.innerHTML = rows.map(([title, views]) =>
       `<tr><td>${title}</td><td class="num">${fmt(views)}</td></tr>`
     ).join('');
