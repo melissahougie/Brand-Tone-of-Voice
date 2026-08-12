@@ -136,6 +136,7 @@
   .badge.pending { background: var(--orange); color: #1a1208; }
   .badge.advanced { background: var(--turquoise-soft); color: var(--turquoise); }
   .badge.early { background: var(--orange-soft); color: #8a3c05; }
+  .badge.declined { background: var(--surface-sunken); color: var(--ink-faint); border: 1px solid var(--line); }
   :root[data-theme="dark"] .badge.advanced { color: #8fdfe2; }
   :root[data-theme="dark"] .badge.early { color: #ffb27a; }
 
@@ -391,10 +392,10 @@
     </div>
 
     <div class="kpi-row">
-      <div class="kpi"><div class="label">Published hits</div><div class="value">10</div><div class="note">since 6/25/26</div></div>
-      <div class="kpi"><div class="label">Published reach</div><div class="value">715,011</div><div class="note">UVPM/circulation, known values</div></div>
-      <div class="kpi"><div class="label">Active pitches</div><div class="value">15</div><div class="note">in progress across 2 stages</div></div>
-      <div class="kpi"><div class="label">Potential pipeline reach</div><div class="value">14.1M</div><div class="note">combined UVPM across open conversations</div></div>
+      <div class="kpi"><div class="label">Published hits</div><div class="value">18</div><div class="note">since 6/25/26</div></div>
+      <div class="kpi"><div class="label">Published reach</div><div class="value">1,446,039</div><div class="note">UVPM/circulation, known values</div></div>
+      <div class="kpi"><div class="label">Active pitches</div><div class="value">10</div><div class="note">in progress across 2 stages</div></div>
+      <div class="kpi"><div class="label">Potential pipeline reach</div><div class="value">13.8M</div><div class="note">combined UVPM across open conversations</div></div>
     </div>
 
     <div class="grid-2">
@@ -419,6 +420,7 @@
       <div class="legend-row">
         <span class="legend-item"><span class="sw" style="background:var(--turquoise-soft)"></span>Advanced (interview/QA stage)</span>
         <span class="legend-item"><span class="sw" style="background:var(--orange-soft)"></span>Early (outreach/follow-up)</span>
+        <span class="legend-item"><span class="sw" style="background:var(--surface-sunken); border:1px solid var(--line);"></span>Declined (kept for the record, not counted as active)</span>
       </div>
       <div class="table-scroll">
         <table class="data" id="pr-pipeline-table">
@@ -516,14 +518,21 @@
   ], { color: COLOR.turquoise });
 
   renderBars('pr-reach-chart', [
-    ['Corporate Counsel Business Journal', 420000],
+    ['Corporate Counsel Business Journal (x2)', 840000],
     ['Recycling Today (x2)', 96590],
+    ['The Dieline', 84758],
+    ['Chain Store Age', 71576],
+    ['Citeline', 58225],
     ['DC Velocity', 50000],
     ['Packaging Strategies', 49000],
+    ['Resource Recycling', 43000],
     ['Plastics Today', 34141],
     ['Packaging Dive', 25572],
+    ['The Packer', 22885],
     ['MedEsthetics', 20000],
-    ['Supply & Demand Chain Exec.', 19708]
+    ['Supply & Demand Chain Exec.', 19708],
+    ['Waste360', 17588],
+    ['Produce Market Guide', 12996]
   ], { color: COLOR.turquoise });
 
   // ---------- GA monthly trend (Jan-Jul) ----------
@@ -835,6 +844,14 @@
   // ---------- PR coverage table ----------
   (function () {
     const rows = [
+      ['8/6/2026', 'Chain Store Age', 71576, 'published', 'Byline by Alyssa Dizon on SB 54'],
+      ['8/3/2026', 'Waste360', 17588, 'published', 'Article included insights on SB 54 compliance'],
+      ['8/3/2026', 'Resource Recycling', 43000, 'published', 'Article included insights on SB 54 compliance'],
+      ['7/29/2026', 'The Dieline', 84758, 'published', 'Article included insights on SB 54 compliance'],
+      ['7/29/2026', 'Citeline', 58225, 'published', 'Article included insights on SB 54 compliance'],
+      ['7/26/2026', 'The Packer', 22885, 'published', 'Article included insights on SB 54 compliance'],
+      ['7/26/2026', 'Produce Market Guide', 12996, 'published', 'Article included insights on SB 54 compliance'],
+      ['7/24/2026', 'Corporate Counsel Business Journal', 420000, 'published', 'Article included insights on SB 54 compliance'],
       ['7/9/2026', 'Recycling Today', 48295, 'published', 'Placed via embargoed press release'],
       ['7/2/2026', 'MedEsthetics', 20000, 'published', 'Placed feature'],
       ['7/2/2026', 'Plastics Today', 34141, 'published', 'Placed via embargoed press release'],
@@ -861,23 +878,21 @@
   (function () {
     const rows = [
       // advanced tier
-      { outlets: 'Resource Recycling', reach: '43,000', bg: 'Interview request on compliance challenges', status: 'Scheduling', tier: 'advanced' },
-      { outlets: 'Packaging Dive · Waste Dive · Waste360', reach: '25,572 / 25,398 / 17,588', bg: 'Freelancer discussing what brands are doing to prep for the source-reduction deadline', status: 'Interview scheduled July 22', tier: 'advanced' },
-      { outlets: 'The Dieline', reach: '84,758', bg: 'Writing an article on SB 54', status: 'Submitted Q&A, monitoring for coverage', tier: 'advanced' },
-      { outlets: 'The Packer', reach: '22,885', bg: 'Writing an article', status: 'Submitted Q&A, monitoring for coverage', tier: 'advanced' },
+      { outlets: 'Packaging Dive', reach: '25,572', bg: 'Freelancer discussing what brands are doing to prep for the source-reduction deadline', status: 'Expected to go live August 12', tier: 'advanced' },
       { outlets: 'North Bay Business Journal', reach: '629,899', bg: 'Interviewed and developed an article', status: 'Interview completed — monitoring for coverage', tier: 'advanced' },
       // early tier
-      { outlets: 'Smart Industry · New Equipment Digest · Plant Services · Control Design', reach: '180,000 / 100,000 / 50,000 / 35,000', bg: 'Reviewing press materials, considering angle/fit', status: 'Follow-up in progress', tier: 'early' },
-      { outlets: 'Chain Store Age', reach: '71,576', bg: 'Offered a byline', status: 'Follow-up in progress', tier: 'early' },
-      { outlets: 'Beauty Packaging', reach: '92,803', bg: 'Reviewing press release under embargo', status: 'Working to schedule', tier: 'early' },
+      { outlets: 'Freelance journalist Anna Townshend — Smart Industry · New Equipment Digest · Plant Services · Control Design', reach: '180,000 / 100,000 / 50,000 / 35,000', bg: 'Reviewing press materials, considering angle/fit', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Beauty Packaging magazine', reach: '92,803', bg: 'Reviewing press release under embargo', status: 'Working to schedule', tier: 'early' },
       { outlets: 'Fast Company', reach: '5,894,800', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
-      { outlets: 'FreightWaves', reach: '611,535', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
+      { outlets: 'Freight Waves', reach: '611,535', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
       { outlets: 'Design World', reach: '30,693', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
-      { outlets: 'Waste Dive · Packaging Dive', reach: '25,398 / 25,572', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
       { outlets: 'Supermarket Guru', reach: '2,867', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
       { outlets: 'Mass Market Retailer · Chain Drug Review', reach: '23,093 / 9,957', bg: 'Reviewing press release under embargo', status: 'Follow-up in progress', tier: 'early' },
-      { outlets: 'Footwear News', reach: '6,070,099', bg: 'Exploring a footwear-specific packaging angle', status: 'Offer thought leadership on EPR + source reduction for footwear', tier: 'early' },
+      { outlets: 'Footwear News / Beauty Inc', reach: '6,070,099', bg: 'Exploring a footwear-specific packaging angle', status: 'Offer thought leadership on EPR + source reduction for footwear', tier: 'early' },
+      // declined
+      { outlets: 'Nutrition Business Journal', reach: '22,500', bg: 'Thought-leadership pitch on compliance impact for dietary supplement supply chains', status: 'Declined', tier: 'declined' },
     ];
+    const tierLabel = { advanced: 'Advanced', early: 'Early', declined: 'Declined' };
     const tbody = document.querySelector('#pr-pipeline-table tbody');
     tbody.innerHTML = rows.map(r =>
       `<tr>
@@ -885,7 +900,7 @@
         <td class="num">${r.reach}</td>
         <td>${r.bg}</td>
         <td>${r.status}</td>
-        <td><span class="badge ${r.tier}">${r.tier === 'advanced' ? 'Advanced' : 'Early'}</span></td>
+        <td><span class="badge ${r.tier}">${tierLabel[r.tier]}</span></td>
       </tr>`
     ).join('');
   })();
