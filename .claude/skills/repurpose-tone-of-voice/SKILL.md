@@ -10,6 +10,7 @@ Before writing or editing anything meant to sound like rePurpose Global, read bo
 1. `reference/TONE_OF_VOICE.md` — the full guide: personality traits, the two-register model, sentence-level patterns, vocabulary rules, an AI-tells checklist, and a writer's checklist.
 2. `reference/winning-example-post.md` — "What a Multi-State EPR Season Actually Tests," picked by the brand owner as the gold-standard example of this voice in practice. Use it as the calibration reference, not just the written rules — if a draft doesn't feel like it belongs next to this post, it's off.
 3. `../../content/repurpose-global/voice-feedback/2026-07-brand-voice-examples.md` — real internal review feedback (not great vs. better) on two LinkedIn posts. This is where the social-specific humor/metaphor calibration below comes from — read it before writing social copy specifically.
+4. `reference/inc-best-in-business-2026-award-answers.md` — approved answers from rePurpose's Inc. 2026 Best in Business Awards submission. Good reference for narrative/nomination-style writing specifically (why a product win matters, leadership positioning, metrics-as-proof), including one flagged answer that was approved as-is despite not meeting the usual bar — read the annotation before copying that one.
 
 Read both in full before drafting anything nontrivial (more than a paragraph or two). For a quick edit or a one-line rewrite, the cheat sheet below is usually enough.
 
