@@ -137,8 +137,12 @@
   .badge.advanced { background: var(--turquoise-soft); color: var(--turquoise); }
   .badge.early { background: var(--orange-soft); color: #8a3c05; }
   .badge.declined { background: var(--surface-sunken); color: var(--ink-faint); border: 1px solid var(--line); }
+  .badge.year { background: var(--turquoise-soft); color: var(--turquoise); }
+  .badge.quarter { background: var(--orange-soft); color: #8a3c05; }
   :root[data-theme="dark"] .badge.advanced { color: #8fdfe2; }
   :root[data-theme="dark"] .badge.early { color: #ffb27a; }
+  :root[data-theme="dark"] .badge.year { color: #8fdfe2; }
+  :root[data-theme="dark"] .badge.quarter { color: #ffb27a; }
 
   table.heatmap { width: 100%; border-collapse: collapse; font-size: 12px; }
   table.heatmap th {
@@ -286,17 +290,6 @@
       <div class="kpi"><div class="label">Form submissions</div><div class="value">3,683</div><div class="note">key conversion event</div></div>
     </div>
 
-    <div class="card" style="margin-top:0; margin-bottom:16px;">
-      <h3>Top pages <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— Q3 2026, to date (Jul 1–Aug 17, 2026)</span></h3>
-      <div class="table-scroll" style="max-height:480px; overflow-y:auto;">
-        <table class="data" id="ga-pages-recent-table">
-          <thead><tr><th>Page / screen</th><th class="num">Views</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div class="foot-note" style="margin-top:10px;">Top 50 of 668 distinct pages/screens in this window · 48,328 total views. Q3 is a partial quarter. Separate export/window from the "top 100" all-time table below — don't sum the two.</div>
-    </div>
-
     <div class="grid-2">
       <div class="card">
         <h3>Weekly active users — 34 weeks</h3>
@@ -352,7 +345,7 @@
 
     <div class="grid-2" style="margin-top:16px;">
       <div class="card">
-        <h3>Top pages by views <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— top 100</span></h3>
+        <h3><span class="badge year">2026</span> Top pages by views <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— top 100</span></h3>
         <div class="table-scroll" style="max-height:560px; overflow-y:auto;">
           <table class="data" id="ga-pages-table">
             <thead><tr><th>Page / screen</th><th class="num">Views</th></tr></thead>
@@ -361,8 +354,21 @@
         </div>
       </div>
       <div class="card">
-        <h3>Audience</h3>
-        <div style="margin-bottom:16px;">
+        <h3><span class="badge quarter">Q3</span> Top pages <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— to date (Jul 1–Aug 17, 2026)</span></h3>
+        <div class="table-scroll" style="max-height:560px; overflow-y:auto;">
+          <table class="data" id="ga-pages-recent-table">
+            <thead><tr><th>Page / screen</th><th class="num">Views</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="foot-note" style="margin-top:10px;">Top 50 of 668 distinct pages/screens in this window · 48,328 total views. Q3 is a partial quarter. Separate export/window from the top-100 table — don't sum the two.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Audience</h3>
+      <div class="grid-2-eq">
+        <div>
           <div class="foot-note" style="margin:0 0 8px;">Top countries by active users</div>
           <div id="ga-countries" class="two-col-list"></div>
         </div>
