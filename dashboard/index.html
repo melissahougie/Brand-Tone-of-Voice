@@ -164,12 +164,6 @@
   .placeholder p { margin: 0 0 12px; font-size: 12.8px; color: var(--ink-muted); max-width: 460px; margin-inline: auto; }
   .placeholder code { background: var(--surface); border: 1px solid var(--line); padding: 1px 6px; border-radius: 5px; font-size: 11.5px; }
 
-  .funnel { display: flex; flex-direction: column; gap: 8px; }
-  .funnel-row { display: grid; grid-template-columns: 120px 1fr 110px; align-items: center; gap: 10px; }
-  .funnel-bar { height: 30px; border-radius: 8px; display: flex; align-items: center; padding-left: 10px; color: #fff; font-weight: 700; font-size: 12px; }
-  .funnel-label { font-size: 12.8px; font-weight: 600; }
-  .funnel-val { text-align: right; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--ink-muted); }
-
   .legend-row { display: flex; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
   .legend-item { font-size: 12px; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
   .legend-item .sw { width: 10px; height: 10px; border-radius: 3px; }
@@ -221,19 +215,12 @@
       <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">602</div><div class="note">deals entered Overview stage, all-time-dated</div></div>
     </div>
 
-    <div class="grid-2">
-      <div class="card">
-        <h3>MQLs &amp; SQLs — YTD</h3>
-        <div class="funnel" id="hs-funnel"></div>
-        <div class="foot-note">Matches the monthly view: MQL = contacts entered MQL lifecycle stage YTD; SQL = deals entered "Overview" (Sales Pipeline) stage YTD. Different units (contacts vs. deals) — shown together for a quick read, not a 1:1 conversion rate.</div>
-      </div>
-      <div class="card">
-        <h3>Top-performing inbound forms &amp; emails</h3>
-        <div class="placeholder">
-          <div class="icon">🔒</div>
-          <h4>Needs additional HubSpot scopes</h4>
-          <p>The connected HubSpot app can query CRM records but isn't authorized for content/form analytics (<code>cms-analytics-api-access</code>) or marketing email metrics. Reauthorize the HubSpot connector with those permissions to light this section up.</p>
-        </div>
+    <div class="card">
+      <h3>Top-performing inbound forms &amp; emails</h3>
+      <div class="placeholder">
+        <div class="icon">🔒</div>
+        <h4>Needs additional HubSpot scopes</h4>
+        <p>The connected HubSpot app can query CRM records but isn't authorized for content/form analytics (<code>cms-analytics-api-access</code>) or marketing email metrics. Reauthorize the HubSpot connector with those permissions to light this section up.</p>
       </div>
     </div>
 
@@ -739,24 +726,6 @@
     ];
     const el = document.getElementById('ga-countries');
     el.innerHTML = rows.map(([c, v]) => `<div class="list-row"><span>${c}</span><span>${fmt(v)}</span></div>`).join('');
-  })();
-
-  // ---------- HubSpot funnel ----------
-  (function () {
-    const stages = [
-      ['MQL', 2992, COLOR.orange, 'contacts'],
-      ['SQL', 602, COLOR.turquoise, 'deals'],
-    ];
-    const max = Math.max(...stages.map(s => s[1]));
-    const el = document.getElementById('hs-funnel');
-    el.innerHTML = stages.map(([label, val, color, unit]) => {
-      const pct = Math.max(18, (val / max) * 100);
-      return `<div class="funnel-row">
-        <div class="funnel-label">${label}</div>
-        <div class="funnel-bar" style="width:${pct.toFixed(1)}%; background:${color};">${fmt(val)}</div>
-        <div class="funnel-val">${unit}, YTD</div>
-      </div>`;
-    }).join('');
   })();
 
   // ---------- HubSpot monthly new MQLs & SQLs (two independently-scaled mini charts) ----------
