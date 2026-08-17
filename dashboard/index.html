@@ -215,27 +215,6 @@
       <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">603</div><div class="note">deals entered Overview stage, all-time-dated</div></div>
     </div>
 
-    <div class="grid-2">
-      <div class="card">
-        <h3>Top forms by submissions <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— Jan 1–Aug 17, 2026</span></h3>
-        <div class="table-scroll">
-          <table class="data" id="hs-top-forms">
-            <thead><tr><th>Form</th><th class="num">Submissions</th><th class="num">% of total</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div class="foot-note">Top 15 of 42 forms with at least one submission this period · 4,646 total submissions across all forms. Source: HubSpot Forms &gt; Analyze, manual export (not yet a live connector pull) — email metrics still need the marketing-email scope.</div>
-      </div>
-      <div class="card">
-        <h3>Top forms — Q3 snapshot <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— coming soon</span></h3>
-        <div class="placeholder">
-          <div class="icon">🗓️</div>
-          <h4>Q3 export not in yet</h4>
-          <p>This card is reserved for a Q3 form-submissions export to sit alongside the YTD view — drop it in when it's ready.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="card" style="margin-top:16px;">
       <h3>Monthly new MQLs &amp; SQLs</h3>
       <div class="grid-2-eq">
@@ -265,6 +244,29 @@
         <table class="heatmap" id="hs-sql-sources"></table>
       </div>
       <div class="foot-note" style="margin-top:10px;">Deal count by "Entry Source", per the "Total SQLs Created Monthly" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug; Aug column here is 26). The chart above and YTD KPI were refreshed from a later pull (Aug now 27, 481 monthly + 122 undated = 603 total) — this source breakdown hasn't been re-split to match, so treat it as a deal or two behind. "(No value)" = deals with no entry source recorded. A further 122 deals have no monthly date entered and are excluded from every column here. The "Owned Webinars" row below is a separate HubSpot report (contacts by date entered SQL lifecycle stage, broken out by individual owned-webinar event) — not one of the Entry Source categories above.</div>
+    </div>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>Top forms by submissions <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— Jan 1–Aug 17, 2026</span></h3>
+        <div class="table-scroll">
+          <table class="data" id="hs-top-forms">
+            <thead><tr><th>Form</th><th class="num">Submissions</th><th class="num">% of total</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="foot-note">Top 15 of 42 forms with at least one submission this period · 4,646 total submissions across all forms. Source: HubSpot Forms &gt; Analyze, manual export (not yet a live connector pull) — email metrics still need the marketing-email scope.</div>
+      </div>
+      <div class="card">
+        <h3>Top forms — Q3 2026 <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— Jul 1–Aug 17, in progress</span></h3>
+        <div class="table-scroll">
+          <table class="data" id="hs-top-forms-q3">
+            <thead><tr><th>Form</th><th class="num">Submissions</th><th class="num">% of total</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="foot-note">Same source, Q3-to-date. Reported total is 1,191 across all forms, but the individually-named rows in this export only add up to 561 — about 630 submissions belong to form(s) whose row didn't transcribe cleanly from the PDF (likely the same unnamed/non-HubSpot embed that shows 630 in the YTD export). Flagged, not guessed — will reconcile once a cleaner export comes through. Q3 is a partial quarter.</div>
+      </div>
     </div>
   </section>
 
@@ -849,6 +851,36 @@
       ['EPR Beauty Compliance eBook: Access Form', 53],
     ];
     const tbody = document.querySelector('#hs-top-forms tbody');
+    tbody.innerHTML = rows.map(([name, v]) =>
+      `<tr>
+        <td>${name}</td>
+        <td class="num">${fmt(v)}</td>
+        <td class="num">${(v / TOTAL * 100).toFixed(1)}%</td>
+      </tr>`
+    ).join('');
+  })();
+
+  // ---------- HubSpot top forms by submissions — Q3 to date ----------
+  (function () {
+    const TOTAL = 1191;
+    const rows = [
+      ['California Source Reduction 101', 177],
+      ['California Source Reduction Guide - rePurpose Air', 88],
+      ['EPR Compliance Checklist Access Form (clone)', 56],
+      ['NEW Website: Contact Form', 39],
+      ['EPR California Compliance eBook: Access Form', 34],
+      ['Source Reduction Compliance Checklist Access Form', 31],
+      ['EPR The EPR Supplier Data Playbook', 25],
+      ['Base Camp to Summit / Behind the Group Catch Up Guide Form', 20],
+      ['EPR F&B Compliance eBook: Access Form', 14],
+      ['EPR Resource Planning Guide Access Form', 12],
+      ['EPR General Compliance eBook: Access Form', 10],
+      ['Packaging Dive Webinar: How To Build a Packaging Data System Ready for EPR Reporting', 8],
+      ['EPR Beauty Compliance eBook: Access Form', 8],
+      ['EPR Pet Brands Compliance eBook: Access Form', 8],
+      ['Customer Success dashboard form', 8],
+    ];
+    const tbody = document.querySelector('#hs-top-forms-q3 tbody');
     tbody.innerHTML = rows.map(([name, v]) =>
       `<tr>
         <td>${name}</td>
