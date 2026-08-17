@@ -16,7 +16,7 @@ Do NOT render directly at 3840×2160. Text becomes blurry at that resolution if 
 
 ## Typography
 - **Font:** Arimo throughout (Google Fonts). No substitutions. (A real exported deck's theme can carry other fonts like DM Sans/Karla/Lato as Google Slides theme leftovers — that's an artifact of the export, not a style choice. If extending an existing deck, check what font its actual body text runs are set to, not just what the theme lists.)
-- **Slide title:** 26pt bold, dark teal (#064F52)
+- **Slide title:** 24-26pt bold, near-black (#1A1A1A or #000000) — confirmed against two real decks (EPR Office Hours, Aug 2026; Source Reduction Bootcamp). Titles are NOT dark teal — that was an error in an earlier version of this doc. Teal is for structural elements (bands, circles, footer) and body-text emphasis, not the title itself.
 - **Subtitle / section header:** 14pt bold, often inside an orange or dark teal band
 - **Body text:** 12pt for bullets and table content
 - **Detail text:** 10-11pt for captions, footnotes, source citations
@@ -25,7 +25,8 @@ Do NOT render directly at 3840×2160. Text becomes blurry at that resolution if 
 ## Color usage on slides
 
 - **Orange (#F9680A):** Reserved for emphasis. One accent moment per slide where possible. CTA pills, "you are here" markers, numbered step circles, subtitle bands, table headers. Don't let orange become wallpaper.
-- **Dark Teal (#064F52):** Primary structural color. Title text, section bands, table headers, secondary numbered circles, body text on light backgrounds.
+- **Near-black (#1A1A1A / #000000):** Slide titles and headline stat numbers (e.g. "25%," "$3.52"). This is the primary title color — not teal (see Typography above).
+- **Dark Teal (#064F52):** Primary structural color. Section/subtitle bands, table headers, footer bands, secondary numbered circles, solid-fill proof/stat cards (white text on top), body text on light backgrounds. Not used for slide titles.
 - **Light Peach (#FBE6D8):** Soft background fills for cards, callouts, the "recommended" treatment, alternating table rows.
 - **Cream / very light off-white (#FDF8F2 or #FAFAFA):** Alternating row backgrounds when peach is too strong.
 - **Light Teal (#D0E6E8):** Supporting backgrounds, less common.
@@ -100,12 +101,17 @@ Do NOT render directly at 3840×2160. Text becomes blurry at that resolution if 
 - Closes with a single synthesizing sentence below the sequence, not a repeat of each step
 - Different from the date-pill timeline above: this pattern is for a small number of big, named phases ("Baseline → Plan → Commit → Execute"), not a dense list of individual deadlines
 
+### Section divider (confirmed in "Source Reduction Bootcamp" and "EPR Office Hours")
+- Plain white background (the slide's inherited default) — NOT a solid-color full-bleed block. An earlier draft of this skill invented a solid-teal divider slide; that was wrong and has been corrected.
+- Just the section title, large (~34-38pt bold, near-black), left- or center-aligned. No band, no footer, no body content.
+- Optional: a small numeral prefix in the title text itself (e.g. "1) Maine's EPR Outlook"), not a separate numbered-circle shape.
+
 ### Closing sequence (confirmed in "Source Reduction Bootcamp")
 The last few slides of a real unPacked deck follow a consistent shape — don't compress it into one slide:
 1. **One-line CTA framing slide** — sparse, just the pitch in a single sentence (e.g. "Let us take compliance off your plate, so you can focus on your day job.")
 2. **Visual break** — a single full-bleed image/graphic, no text, as a breather before the sales content
 3. **How-it-works** — a short (3-step) numbered process specific to rePurpose's own workflow (assess → compile → submit/forecast)
-4. **Proof-point card grid** — 4 short cards, each a bold headline claim + one supporting sentence (results/speed, pricing model, expertise, product capability), plus a CTA line and the bare `repurpose.global` URL
+4. **Proof-point card grid** — 4 short cards, each a bold headline claim + one supporting sentence (results/speed, pricing model, expertise, product capability), plus a CTA line and the bare `repurpose.global` URL. **Confirmed card styling (from EPR Office Hours, Aug 2026):** solid dark-teal (#064F52) card fill, white headline (16pt bold) and white body text (12pt) — not cream/peach cards with teal text like other card patterns on this page. This is the one card pattern that inverts the usual light-card convention.
 5. **Thank-you/contact slide** — "Thank You!", social handles, contact email, one-sentence company description
 
 ## Reusable elements

@@ -13,13 +13,14 @@ const fs = require("fs");
 const path = require("path");
 
 // brand palette
-const TEAL   = "064F52";
-const ORANGE = "F9680A";
-const PEACH  = "FBE6D8";
-const CREAM  = "FDF8F2";
-const GRAY   = "666666";
-const WHITE  = "FFFFFF";
-const FONT   = "Arimo";
+const TEAL     = "064F52";
+const ORANGE   = "F9680A";
+const PEACH    = "FBE6D8";
+const CREAM    = "FDF8F2";
+const GRAY     = "666666";
+const WHITE    = "FFFFFF";
+const NEARBLACK = "1A1A1A"; // slide titles — confirmed from real decks, NOT teal
+const FONT     = "Arimo";
 
 // paths — resolve from project root (process.cwd() when invoked via build.sh)
 const ASSETS = "assets";
@@ -38,7 +39,7 @@ function base(slide, title, band) {
   slide.addImage({ path: `${ASSETS}/globe.png`, x: 8.75, y: -5.54, w: 10.49, h: 10.49 });
   slide.addText(title, {
     x: 0.55, y: 0.40, w: 12.2, h: 0.74,
-    fontFace: FONT, fontSize: 28, bold: true, color: TEAL,
+    fontFace: FONT, fontSize: 28, bold: true, color: NEARBLACK,
     align: "left", valign: "middle", margin: 0,
   });
   // orange subtitle band — the slide's one-line takeaway

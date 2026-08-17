@@ -29,14 +29,16 @@ Both want calm, specific, expert help. Neither wants marketing copy or alarm bel
 | Light Peach | `#FBE6D8` | Backgrounds, soft sections, callout boxes |
 | Orange | `#F9680A` | Primary accent, CTAs, highlight markers |
 | Light Teal | `#D0E6E8` | Secondary background, supportive accent |
-| Dark Teal | `#064F52` | Primary text on light, headers, structural elements |
+| Light Cyan | `#E8F8F9` | Alternate light-tint card background (seen in disclaimer/joke cards) |
+| Dark Teal | `#064F52` | Structural elements: bands, footers, table headers, numbered circles, and — inverted — solid-fill proof/stat cards with white text. NOT slide titles. |
 | White | `#FFFFFF` | Backgrounds, contrast |
 | Off-White | `#F2F2F2` | Subtle background variation |
 | Gray (light) | `#E5E5E5` | Borders, dividers |
 | Gray (mid) | `#CCCCCC` | Subtle text, deprecated info |
 | Gray (dark) | `#999999` | Body text on light, captions |
 | Gray (darker) | `#666666` | Strong body text |
-| Black | `#000000` | High contrast text |
+| Near-black | `#1A1A1A` | Slide titles, headline stat numbers — the default title color |
+| Black | `#000000` | Also seen for titles; either near-black works, don't mix both in one deck |
 
 ## Font
 **Arimo** (Google Fonts). Used across slides and most marketing materials.
