@@ -257,7 +257,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-mql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">Contact count by "Recent Source", per the "All MQL - By Date Entered MQL" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). Report total: 2,992 contacts, matching the chart above and the YTD KPI.</div>
+      <div class="foot-note" style="margin-top:10px;">Contact count by "Recent Source", per the "All MQL - By Date Entered MQL" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). Report total: 2,992 contacts, matching the chart above and the YTD KPI. The "Owned Webinars" row below is a separate HubSpot report (contacts by create date, filtered to owned-webinar sources) — it's not one of the Recent Source categories above and isn't included in the 2,992 total.</div>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -265,7 +265,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-sql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">Deal count by "Entry Source", per the "Total SQLs Created Monthly" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). "(No value)" = deals with no entry source recorded. A further 122 deals have no monthly date entered and are excluded from every column here; they're included in the 602 YTD KPI above (matches the report's all-time total) but not in this month-by-month view (which sums to 480).</div>
+      <div class="foot-note" style="margin-top:10px;">Deal count by "Entry Source", per the "Total SQLs Created Monthly" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). "(No value)" = deals with no entry source recorded. A further 122 deals have no monthly date entered and are excluded from every column here; they're included in the 602 YTD KPI above (matches the report's all-time total) but not in this month-by-month view (which sums to 480). The "Owned Webinars" row below is a separate HubSpot report (contacts by date entered SQL lifecycle stage, broken out by individual owned-webinar event) — not one of the Entry Source categories above, so it isn't part of the 480/602 totals.</div>
     </div>
   </section>
 
@@ -799,9 +799,12 @@
   }
   function renderHeatmapTable(tableId, months, rows, hexColor) {
     const [r, g, b] = hexToRgb(hexColor);
-    const max = Math.max(...rows.flatMap(row => row[1]));
+    const max = Math.max(...rows.flatMap(row => row[1] || []));
     const thead = `<thead><tr><th>Source</th>${months.map(m => `<th class="num">${m}</th>`).join('')}</tr></thead>`;
     const tbody = '<tbody>' + rows.map(([label, vals]) => {
+      if (!vals) {
+        return `<tr><td colspan="${months.length + 1}" style="padding-top:14px; border-top:1px solid var(--line); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); font-weight:700;">${label}</td></tr>`;
+      }
       const cells = vals.map(v => {
         const t = max > 0 ? v / max : 0;
         const alpha = (0.06 + t * 0.82).toFixed(3);
@@ -824,6 +827,8 @@
       ['Referral', [9, 6, 28, 26, 50, 97, 19, 10]],
       ['Event Sourced', [0, 0, 0, 10, 11, 4, 3, 2]],
       ['Website Contact Us Form', [0, 0, 1, 0, 0, 0, 0, 0]],
+      ['Owned webinars — separate breakdown, not part of Recent Source above', null],
+      ['Owned Webinars (MQLs & leads)', [62, 48, 63, 78, 60, 208, 56, 40]],
     ];
     const sqlRows = [
       ['List Upload / Outbound', [10, 13, 24, 33, 39, 20, 17, 9]],
@@ -835,6 +840,8 @@
       ['Paid Industry Media', [1, 3, 10, 9, 4, 5, 1, 0]],
       ['(No value)', [3, 5, 10, 3, 1, 1, 2, 1]],
       ['Paid Social', [4, 1, 0, 1, 0, 0, 1, 0]],
+      ['Owned webinars — separate breakdown, not part of Entry Source above', null],
+      ['Owned Webinars', [16, 46, 86, 44, 90, 143, 69, 29]],
     ];
     renderHeatmapTable('hs-mql-sources', months, mqlRows, COLOR.orange);
     renderHeatmapTable('hs-sql-sources', months, sqlRows, COLOR.turquoise);
