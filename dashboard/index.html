@@ -215,12 +215,24 @@
       <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">603</div><div class="note">deals entered Overview stage, all-time-dated</div></div>
     </div>
 
-    <div class="card">
-      <h3>Top-performing inbound forms &amp; emails</h3>
-      <div class="placeholder">
-        <div class="icon">🔒</div>
-        <h4>Needs additional HubSpot scopes</h4>
-        <p>The connected HubSpot app can query CRM records but isn't authorized for content/form analytics (<code>cms-analytics-api-access</code>) or marketing email metrics. Reauthorize the HubSpot connector with those permissions to light this section up.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Top forms by submissions <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— Jan 1–Aug 17, 2026</span></h3>
+        <div class="table-scroll">
+          <table class="data" id="hs-top-forms">
+            <thead><tr><th>Form</th><th class="num">Submissions</th><th class="num">% of total</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="foot-note">Top 15 of 42 forms with at least one submission this period · 4,646 total submissions across all forms. Source: HubSpot Forms &gt; Analyze, manual export (not yet a live connector pull) — email metrics still need the marketing-email scope.</div>
+      </div>
+      <div class="card">
+        <h3>Top forms — Q3 snapshot <span style="font-weight:400; color:var(--ink-faint); font-size:12px;">— coming soon</span></h3>
+        <div class="placeholder">
+          <div class="icon">🗓️</div>
+          <h4>Q3 export not in yet</h4>
+          <p>This card is reserved for a Q3 form-submissions export to sit alongside the YTD view — drop it in when it's ready.</p>
+        </div>
       </div>
     </div>
 
@@ -814,6 +826,36 @@
     ];
     renderHeatmapTable('hs-mql-sources', months, mqlRows, COLOR.orange);
     renderHeatmapTable('hs-sql-sources', months, sqlRows, COLOR.turquoise);
+  })();
+
+  // ---------- HubSpot top forms by submissions ----------
+  (function () {
+    const TOTAL = 4646;
+    const rows = [
+      ['EPR Compliance Checklist Access Form (clone)', 911],
+      ['#ewfXBp347gnGR12aElb7 (Non-HubSpot form)', 630],
+      ['Base Camp to Summit / Behind the Group Catch Up Guide Form', 441],
+      ['EPR The EPR Supplier Data Playbook', 371],
+      ['EPR California Compliance eBook: Access Form', 356],
+      ['Source Reduction Compliance Checklist Access Form', 332],
+      ['EPR Resource Planning Guide Access Form', 277],
+      ['California Source Reduction 101', 217],
+      ['NEW Website: Contact Form', 209],
+      ['California Source Reduction Guide - rePurpose Air', 160],
+      ['EPR General Compliance eBook: Access Form', 125],
+      ['EPR F&B Compliance eBook: Access Form', 123],
+      ['EPR Colorado Compliance eBook: Access Form', 82],
+      ['EPR Oregon Compliance eBook: Access Form', 68],
+      ['EPR Beauty Compliance eBook: Access Form', 53],
+    ];
+    const tbody = document.querySelector('#hs-top-forms tbody');
+    tbody.innerHTML = rows.map(([name, v]) =>
+      `<tr>
+        <td>${name}</td>
+        <td class="num">${fmt(v)}</td>
+        <td class="num">${(v / TOTAL * 100).toFixed(1)}%</td>
+      </tr>`
+    ).join('');
   })();
 
   // ---------- PR coverage table ----------
