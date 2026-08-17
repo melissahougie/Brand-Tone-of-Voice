@@ -217,8 +217,8 @@
     <div class="kpi-row">
       <div class="kpi"><div class="label">Total contacts</div><div class="value">158,736</div><div class="note">all-time database</div></div>
       <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,658</div><div class="note">created since Jan 1</div></div>
-      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,908</div><div class="note">contacts entered MQL stage YTD</div></div>
-      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">472</div><div class="note">deals entered Overview stage YTD</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,992</div><div class="note">contacts entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">602</div><div class="note">deals entered Overview stage, all-time-dated</div></div>
     </div>
 
     <div class="grid-2">
@@ -257,7 +257,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-mql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">% share of that month's MQLs, per the "All MQL - By Date Entered MQL" HubSpot report, pulled Jul 2026 (7-month view: Jan-Jul). The monthly chart above now runs through August with updated totals (Jul is complete at 395, Aug is partial at 176) — this source-mix breakdown hasn't been repulled to match, so treat the percentages here as a snapshot from that earlier date rather than a live mirror of the chart above.</div>
+      <div class="foot-note" style="margin-top:10px;">Contact count by "Recent Source", per the "All MQL - By Date Entered MQL" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). Report total: 2,992 contacts, matching the chart above and the YTD KPI.</div>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -265,7 +265,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-sql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">% share of that month's SQLs, per the "Total SQLs Created Monthly" HubSpot report (Entry Source property), pulled Jul 2026 (7-month view: Jan-Jul). The monthly chart above now runs through August with updated totals (Jul is complete at 56, Aug is partial at 18) — this source-mix breakdown hasn't been repulled to match. "(No value)" = deals with no entry source recorded. A further 105 deals had no monthly date entered at all and are excluded from every column here.</div>
+      <div class="foot-note" style="margin-top:10px;">Deal count by "Entry Source", per the "Total SQLs Created Monthly" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). "(No value)" = deals with no entry source recorded. A further 122 deals have no monthly date entered and are excluded from every column here; they're included in the 602 YTD KPI above (matches the report's all-time total) but not in this month-by-month view (which sums to 480).</div>
     </div>
   </section>
 
@@ -744,8 +744,8 @@
   // ---------- HubSpot funnel ----------
   (function () {
     const stages = [
-      ['MQL', 2908, COLOR.orange, 'contacts'],
-      ['SQL', 472, COLOR.turquoise, 'deals'],
+      ['MQL', 2992, COLOR.orange, 'contacts'],
+      ['SQL', 602, COLOR.turquoise, 'deals'],
     ];
     const max = Math.max(...stages.map(s => s[1]));
     const el = document.getElementById('hs-funnel');
@@ -788,8 +788,8 @@
   }
   (function () {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug*'];
-    renderMiniMonthlyBars('hs-monthly-mql', months, [126, 92, 617, 402, 355, 745, 395, 176], COLOR.orange);
-    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 56, 18], COLOR.turquoise);
+    renderMiniMonthlyBars('hs-monthly-mql', months, [126, 92, 617, 402, 355, 745, 395, 260], COLOR.orange);
+    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 56, 26], COLOR.turquoise);
   })();
 
   // ---------- HubSpot MQL/SQL source-mix heatmaps ----------
@@ -806,36 +806,35 @@
         const t = max > 0 ? v / max : 0;
         const alpha = (0.06 + t * 0.82).toFixed(3);
         const textColor = t > 0.5 ? '#fff' : 'var(--ink)';
-        return `<td class="num" style="background:rgba(${r},${g},${b},${alpha}); color:${textColor};">${v.toFixed(1)}%</td>`;
+        return `<td class="num" style="background:rgba(${r},${g},${b},${alpha}); color:${textColor};">${fmt(v)}</td>`;
       }).join('');
       return `<tr><td class="src">${label}</td>${cells}</tr>`;
     }).join('') + '</tbody>';
     document.getElementById(tableId).innerHTML = thead + tbody;
   }
   (function () {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
     const mqlRows = [
-      ['Organic Search', [13.4, 8.7, 10.7, 7.2, 8.7, 4.0, 4.0]],
-      ['Paid Search', [3.1, 18.5, 7.3, 7.7, 5.9, 3.8, 10.6]],
-      ['Email Marketing', [33.9, 17.4, 18.5, 29.4, 25.4, 6.4, 10.6]],
-      ['Organic Social', [2.4, 1.1, 4.1, 1.2, 1.4, 0.4, 1.0]],
-      ['Referrals', [10.2, 8.7, 7.8, 7.2, 5.6, 4.4, 6.5]],
-      ['Other Campaigns', [3.1, 2.2, 16.7, 9.5, 11.8, 10.3, 7.5]],
-      ['Direct Traffic', [29.1, 30.4, 31.9, 19.4, 14.9, 6.2, 8.5]],
-      ['Offline Sources', [3.1, 13.0, 1.5, 18.4, 22.3, 64.1, 51.3]],
-      ['Paid Social', [1.6, 0.0, 1.3, 0.0, 3.4, 0.3, 0.0]],
-      ['AI Referrals', [0.0, 0.0, 0.3, 0.0, 0.6, 0.1, 0.0]],
+      ['Inbound - Web Form', [74, 46, 432, 216, 116, 107, 102, 33]],
+      ['List Import / Offline Upload', [1, 1, 6, 60, 54, 322, 112, 108]],
+      ['Outbound - Sales Outreach', [4, 11, 3, 5, 14, 153, 119, 87]],
+      ['Inbound - Direct / Email Marketing', [23, 7, 52, 41, 61, 23, 8, 5]],
+      ['Inbound - Paid Ads', [6, 17, 51, 31, 35, 29, 28, 13]],
+      ['Inbound - Organic', [9, 4, 44, 13, 14, 10, 4, 2]],
+      ['Referral', [9, 6, 28, 26, 50, 97, 19, 10]],
+      ['Event Sourced', [0, 0, 0, 10, 11, 4, 3, 2]],
+      ['Website Contact Us Form', [0, 0, 1, 0, 0, 0, 0, 0]],
     ];
     const sqlRows = [
-      ['Organic Search', [9.7, 9.6, 2.9, 6.6, 12.5, 7.7, 3.4]],
-      ['Paid Search', [3.2, 1.9, 2.9, 10.5, 8.8, 14.3, 13.8]],
-      ['Paid Social', [12.9, 1.9, 0.0, 1.3, 0.0, 0.0, 0.0]],
-      ['Partner Event', [19.4, 25.0, 7.4, 10.5, 16.3, 19.8, 20.7]],
-      ['Paid Industry Media', [3.2, 5.8, 14.7, 11.8, 5.0, 5.5, 3.4]],
-      ['List Upload / Outbound', [32.3, 25.0, 35.3, 43.4, 48.8, 22.0, 24.1]],
-      ['Direct', [3.2, 15.4, 14.7, 1.3, 2.5, 14.3, 17.2]],
-      ['Warm Inbound', [6.5, 5.8, 7.4, 10.5, 5.0, 15.4, 17.2]],
-      ['(No value)', [9.7, 9.6, 14.7, 3.9, 1.3, 1.1, 0.0]],
+      ['List Upload / Outbound', [10, 13, 24, 33, 39, 20, 17, 9]],
+      ['Partner Event', [6, 13, 5, 8, 13, 18, 8, 7]],
+      ['Direct', [1, 8, 10, 1, 2, 13, 8, 3]],
+      ['Organic Search', [3, 5, 2, 5, 10, 7, 3, 3]],
+      ['Warm Inbound', [2, 3, 5, 8, 4, 14, 11, 3]],
+      ['Paid Search', [1, 1, 2, 8, 7, 13, 5, 0]],
+      ['Paid Industry Media', [1, 3, 10, 9, 4, 5, 1, 0]],
+      ['(No value)', [3, 5, 10, 3, 1, 1, 2, 1]],
+      ['Paid Social', [4, 1, 0, 1, 0, 0, 1, 0]],
     ];
     renderHeatmapTable('hs-mql-sources', months, mqlRows, COLOR.orange);
     renderHeatmapTable('hs-sql-sources', months, sqlRows, COLOR.turquoise);
