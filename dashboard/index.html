@@ -211,8 +211,8 @@
     <div class="kpi-row">
       <div class="kpi"><div class="label">Total contacts</div><div class="value">168,593</div><div class="note">all-time database</div></div>
       <div class="kpi"><div class="label">New contacts (YTD)</div><div class="value">34,658</div><div class="note">created since Jan 1</div></div>
-      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,992</div><div class="note">contacts entered MQL stage YTD</div></div>
-      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">602</div><div class="note">deals entered Overview stage, all-time-dated</div></div>
+      <div class="kpi"><div class="label">New MQLs (YTD)</div><div class="value">2,995</div><div class="note">contacts entered MQL stage YTD</div></div>
+      <div class="kpi"><div class="label">New SQLs (YTD)</div><div class="value">603</div><div class="note">deals entered Overview stage, all-time-dated</div></div>
     </div>
 
     <div class="card">
@@ -244,7 +244,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-mql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">Contact count by "Recent Source", per the "All MQL - By Date Entered MQL" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). Report total: 2,992 contacts, matching the chart above and the YTD KPI. The "Owned Webinars" row below is a separate HubSpot report (contacts by create date, filtered to owned-webinar sources) — it's not one of the Recent Source categories above and isn't included in the 2,992 total.</div>
+      <div class="foot-note" style="margin-top:10px;">Contact count by "Recent Source", per the "All MQL - By Date Entered MQL" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug; Aug column here is 260). The chart above and YTD KPI were refreshed from a later pull (Aug now 263, 2,995 total) — this source breakdown hasn't been re-split to match, so treat it as a few contacts behind. The "Owned Webinars" row below is a separate HubSpot report (contacts by create date, filtered to owned-webinar sources) — it's not one of the Recent Source categories above.</div>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -252,7 +252,7 @@
       <div class="table-scroll">
         <table class="heatmap" id="hs-sql-sources"></table>
       </div>
-      <div class="foot-note" style="margin-top:10px;">Deal count by "Entry Source", per the "Total SQLs Created Monthly" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug). "(No value)" = deals with no entry source recorded. A further 122 deals have no monthly date entered and are excluded from every column here; they're included in the 602 YTD KPI above (matches the report's all-time total) but not in this month-by-month view (which sums to 480). The "Owned Webinars" row below is a separate HubSpot report (contacts by date entered SQL lifecycle stage, broken out by individual owned-webinar event) — not one of the Entry Source categories above, so it isn't part of the 480/602 totals.</div>
+      <div class="foot-note" style="margin-top:10px;">Deal count by "Entry Source", per the "Total SQLs Created Monthly" HubSpot report, pulled Aug 17 2026 (8-month view: Jan-Aug; Aug column here is 26). The chart above and YTD KPI were refreshed from a later pull (Aug now 27, 481 monthly + 122 undated = 603 total) — this source breakdown hasn't been re-split to match, so treat it as a deal or two behind. "(No value)" = deals with no entry source recorded. A further 122 deals have no monthly date entered and are excluded from every column here. The "Owned Webinars" row below is a separate HubSpot report (contacts by date entered SQL lifecycle stage, broken out by individual owned-webinar event) — not one of the Entry Source categories above.</div>
     </div>
   </section>
 
@@ -757,8 +757,8 @@
   }
   (function () {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug*'];
-    renderMiniMonthlyBars('hs-monthly-mql', months, [126, 92, 617, 402, 355, 745, 395, 260], COLOR.orange);
-    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 56, 26], COLOR.turquoise);
+    renderMiniMonthlyBars('hs-monthly-mql', months, [126, 92, 617, 402, 355, 745, 395, 263], COLOR.orange);
+    renderMiniMonthlyBars('hs-monthly-sql', months, [31, 52, 68, 76, 80, 91, 56, 27], COLOR.turquoise);
   })();
 
   // ---------- HubSpot MQL/SQL source-mix heatmaps ----------
